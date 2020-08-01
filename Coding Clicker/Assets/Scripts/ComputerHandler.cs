@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,8 @@ public static class ComputerHandler
     static bool wobbly = false;
 
     static GameObject functions = GameObject.Find("Functions");
-    static RandomFunctions rand = functions.GetComponent<RandomFunctions>();
+
+    static decimal clickPower = 1;
 
     public static void ComputerClicked()
     {
@@ -27,8 +29,22 @@ public static class ComputerHandler
             wobbly = false;
             */
         }
+        LevelHandler.AddMoney(clickPower);
+        UIHandler.UpdateMoney();
+    }
 
-        LevelHandler.AddMoney(1);
-        UIHandler.UpdateMoney(LevelHandler.money);
+    public static void MultiplyClickPower(decimal mult)
+    {
+        clickPower *= mult;
+    }
+
+    public static void AddClickPower(decimal amount)
+    {
+        clickPower += amount;
+    }
+
+    public static void ChangeComputerImage(Sprite image)
+    {
+        computer.GetComponent<Image>().sprite = image;
     }
 }

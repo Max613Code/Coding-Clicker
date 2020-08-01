@@ -4,16 +4,21 @@ using UnityEngine;
 
 public static class LevelHandler
 {
-    public static float money { get; private set; }
+    public static decimal money { get; private set; }
 
-    public static void SetMoney(float Money)
+    public static void SetMoney(decimal Money)
     {
         money = Money;
     }
 
-    public static void AddMoney(float Money)
+    public static void AddMoney(decimal Money)
     {
         money += Money;
+    }
+
+    public static void SubtractMoney(decimal Money)
+    {
+        money -= Money;
     }
 
 }

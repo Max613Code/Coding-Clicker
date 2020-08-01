@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class RandomFunctions : MonoBehaviour
+public static class RandomFunctions
 {
-    public System.Random rand = new System.Random();
+    public static System.Random rand = new System.Random();
 
-    public int RandomInt(int min, int max)
+    public static int RandomInt(int min, int max)
     {
         return rand.Next(min, max);
     }

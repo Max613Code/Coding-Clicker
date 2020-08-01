@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a29405d4e62604dbe63f1a0817524d, type: 3}
+  m_Name: BlockCodingUpgrade4
+  m_EditorClassIdentifier: 
+  upgradeName: Talk Block
+  upgradeDescription: Now they can talk?!\nProduction * 1.5
+  cost: 1000
+  multiplier: 1.5
+  dropDown: 3
+  generatorName: BlockCoding
+  GeneratorImage: {fileID: 0}
+  UpgradeEffectOnWhatImage: {fileID: 21300000, guid: e222fb0776e753b498168d08bf85813b,
+    type: 3}

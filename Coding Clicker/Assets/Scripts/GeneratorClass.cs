@@ -6,30 +6,33 @@ using UnityEngine;
 [System.Serializable]
 public class GeneratorClass
 {
-    private float costBase;
-    public float cost { get; private set; }
-    private float growth_rate;
-    private float productionBase;
-    public float production { get; private set; }
+    private decimal costBase;
+    public decimal cost { get; private set; }
+    private float growthRate;
+    private decimal productionBase;
+    public decimal production { get; private set; }
 
-    public float multiplier { get; private set; }
+    public decimal multiplier { get; private set; }
 
     public int owned { get; private set; }
 
-    public float cooldownPercent { get; private set; }
-    public float cooldown { get; private set; }
-
+    public decimal cooldownLeft { get; private set; }
+    public decimal cooldown { get; private set; }
     public bool unlocked { get; private set; }
 
     private GameObject cooldownBar;
     private GameObject buyObj;
-    public GameObject timeLeftObj;
+    private GameObject timeLeftObj;
+
+    public string name { get; private set; }
 
     public void SetUp()
     {
-        production = productionBase;
+        owned = 0;
+        production = 0;
         cost = costBase;
         multiplier = 1;
+        cooldownLeft = 0;
     }
 
     public void CalculateProduction()
@@ -39,7 +42,7 @@ public class GeneratorClass
 
     public void CalculateCost()
     {
-        cost = (float)(costBase * Math.Pow(costBase, owned));
+        cost = (decimal)Math.Round((double)costBase * Math.Pow(growthRate, owned), 2);
     }
 
     public void Buy(int amount)
@@ -52,11 +55,41 @@ public class GeneratorClass
         }
     }
 
-    public GeneratorClass(float CostBase, float ProductionBase, float CoolDown, GameObject CooldownBar, GameObject BuyObj, GameObject TimeLeftObj, bool Unlocked)
+    public void unlock()
     {
+        owned += 1;
+        unlocked = true;
+        CalculateProduction();
+        CalculateCost();
+    }
+
+    public void SubCoolDownLeft(decimal value)
+    {
+        cooldownLeft -= value;
+    }
+
+    public void SetCoolDownLeft(decimal value)
+    {
+        cooldownLeft = value;
+    }
+
+    public void SetCoolDown(decimal value)
+    {
+        cooldown = value;
+    }
+
+    public void Multiply(decimal value)
+    {
+        multiplier *= value;
+    }
+
+    public GeneratorClass(string Name, decimal CostBase, float GrowthRate, decimal ProductionBase, decimal CoolDown, GameObject CooldownBar, GameObject BuyObj, GameObject TimeLeftObj, bool Unlocked)
+    {
+        name = Name;
         costBase = CostBase;
+        growthRate = GrowthRate; 
         productionBase = ProductionBase;
-        cooldown = cooldown;
+        cooldown = CoolDown;
         cooldownBar = CooldownBar;
         buyObj = BuyObj;
         timeLeftObj = TimeLeftObj;
