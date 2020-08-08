@@ -34,11 +34,9 @@ public class GeneratorMaker : MonoBehaviour
 
     private void Start()
     {
-        gen = new GeneratorClass(genName, (decimal)costBase, growthRate, (decimal)productionBase, (decimal)cooldown, cooldownBar, buy, timer, false);
+        gen = new GeneratorClass(genName, (decimal)costBase, growthRate, (decimal)productionBase, (decimal)cooldown, cooldownBar, buy, timer, false, this);
         startPos = cooldownBar.transform.position;
         startScale = cooldownBar.transform.localScale;
-        
-        //Check save to see if unlocked
 
         button.GetComponent<Image>().sprite = LockImage;
 
@@ -67,23 +65,40 @@ public class GeneratorMaker : MonoBehaviour
                 gen.Buy(amount);
                 UpdateTexts();
             }
-            amountText.text = gen.owned.ToString();
         }
     }
 
-    public void ProduceMoney()
+    public void LoadUnlock()
     {
-        StartCoroutine(ProduceMoneyIE());
+        gen.unlock();
+        amountText.transform.GetChild(0).gameObject.SetActive(true);
+        UpdateTexts();
+        button.GetComponent<Image>().sprite = Image;
+        UpdateTexts();
     }
 
-    public IEnumerator ProduceMoneyIE()
+    public void ProduceMoney(bool ResetCooldownLeft = true)
+    {
+        StartCoroutine(ProduceMoneyIE(ResetCooldownLeft));
+    }
+
+    public IEnumerator ProduceMoneyIE(bool ResetCooldownLeft = true)
     {
         if (!producing)
         {
             producing = true;
-            gen.SetCoolDownLeft(gen.cooldown);
             widthIncrease = (decimal)cooldownBar.transform.localScale.x/gen.cooldown;
             cooldownBar.transform.localScale = new Vector3(0, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
+
+            if (!ResetCooldownLeft)
+            {
+                cooldownBar.transform.localScale = new Vector3(cooldownBar.transform.localScale.x + (float)(gen.cooldown - gen.cooldownLeft) * (float)widthIncrease, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
+                cooldownBar.transform.position = new Vector3(startPos.x - startScale.x / 2 + (cooldownBar.transform.localScale.x / 2), startPos.y, startPos.z);
+            }
+            else
+            {
+                gen.SetCoolDownLeft(gen.cooldown);
+            }
             while (gen.cooldownLeft > 0)
             {
                 cooldownBar.transform.localScale = new Vector3(cooldownBar.transform.localScale.x + Time.deltaTime * (float)widthIncrease, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
@@ -106,6 +121,10 @@ public class GeneratorMaker : MonoBehaviour
         productionAmountText.text = "$" + gen.production.ToString();
         costAmountText.text = "$" + gen.cost.ToString();
         timerText.text = gen.cooldownLeft.ToString() + " s";
+        if (gen.owned != 0)
+        {
+            amountText.text = gen.owned.ToString();
+        }
         UIHandler.UpdateMoney();
     }
 
@@ -120,6 +139,11 @@ public class GeneratorMaker : MonoBehaviour
     {
         gen.SetCoolDown(gen.cooldown / value);
         gen.SetCoolDownLeft(gen.cooldownLeft / value);
+    }
+
+    public void StartAutoClick()
+    {
+        StartCoroutine(gen.autoclicker.IEStartAutoClick());
     }
     
 }

@@ -13,10 +13,18 @@ public class UpgradeHandler : MonoBehaviour
 
     private UpgradeClass upgClass;
 
+    private List<UpgradeSOScript> upgradeListSorted;
+
+    public List<UpgradeScript> upgradeScriptList;
+
+    private GameObject Master;
+
     private void Start()
     {
-        upgradeList = upgradeList.OrderBy( o => o.cost ).ToList();
-        foreach (UpgradeSOScript SO in upgradeList)
+        upgradeScriptList = Enumerable.Repeat((UpgradeScript)null,upgradeList.Count()).ToList();
+        Master = GameObject.Find("Master");
+        upgradeListSorted = upgradeList.OrderBy( o => o.cost ).ToList();
+        foreach (UpgradeSOScript SO in upgradeListSorted)
         {
             if (SO.generatorName != "")
             {
@@ -26,14 +34,19 @@ public class UpgradeHandler : MonoBehaviour
             {
                 upgClass = new UpgradeClass(SO.upgradeName, SO.upgradeDescription, (decimal)SO.cost, SO.multiplier, SO.dropDown.ToString(), null, SO.UpgradeImage, SO.UpgradeEffectOnWhatImage, SO.ComputerUpgradeImage, SO.AutoClickerCooldown);
             }
+            SO.myUpgradeClass = upgClass;
             GameObject upgrade= (GameObject)Instantiate(UpgradePrefab);
             upgrade.transform.SetParent(UpgradeContainer.transform, worldPositionStays: false);
 
             UpgradeScript script = upgrade.GetComponent<UpgradeScript>();
             script.upgClass = upgClass;
+            script.Master = Master;
+            script.Index = upgradeList.IndexOf(SO);
             script.SetUp();
 
             UIHandler.RePosUpgradeUI();
+
+            upgradeScriptList[upgradeList.IndexOf(SO)] = script;
         }
     }
 }

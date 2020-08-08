@@ -11,13 +11,16 @@ public class UpgradeSOScript : ScriptableObject
     
     public Sprite UpgradeImage;
     public Sprite UpgradeEffectOnWhatImage;
+
+    public UpgradeClass myUpgradeClass;
     public enum SelectionMenu
     {
         ComputerClickPower,
         ComputerAutoClicker,
         UpgradeComputerType,
         GeneratorProductionBase,
-        GeneratorSpeed
+        GeneratorSpeed,
+        GeneratorAutoClicker
     };
     
     public SelectionMenu dropDown = SelectionMenu.ComputerClickPower;
@@ -31,6 +34,7 @@ public class UpgradeSOScript : ScriptableObject
     
     
     public Sprite ComputerUpgradeImage;
+
 
     public float AutoClickerCooldown;
 }

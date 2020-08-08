@@ -68,11 +68,22 @@ public class UpgradeClass
             else if (action == "ComputerAutoClicker")
             {
                 MasterScript Master = GameObject.Find("Master").GetComponent<MasterScript>();
-                if (!Master.ComputerAutoClickerExists)
+                if (Master.ComputerAutoClickerExists == false)
                 {
                     Master.ComputerAutoClickerExists = true;
-                    Master.autoClickerClass = new AutoClickerClass((decimal)autoClickerCooldown);
+                    Master.autoClickerClass = new AutoClickerClass((decimal)autoClickerCooldown, true);
+                    Master.autoClickers.Add(Master.autoClickerClass);
                     Master.StartComputerAutoClick();
+                }
+            }
+            else if (action == "GeneratorAutoClicker")
+            {
+                MasterScript Master = GameObject.Find("Master").GetComponent<MasterScript>();
+                if (genScript.gen.AutoClickerAmounts == 0)
+                {
+                    genScript.gen.autoclicker = new AutoClickerClass((decimal)autoClickerCooldown, false, -1, genScript);
+                    Master.autoClickers.Add(genScript.gen.autoclicker);
+                    genScript.StartAutoClick();
                 }
             }
         }

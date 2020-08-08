@@ -24,7 +24,13 @@ public class GeneratorClass
     private GameObject buyObj;
     private GameObject timeLeftObj;
 
+    public int AutoClickerAmounts;
+
+    public AutoClickerClass autoclicker;
+
     public string name { get; private set; }
+
+    public GeneratorMaker genMaker;
 
     public void SetUp()
     {
@@ -83,7 +89,39 @@ public class GeneratorClass
         multiplier *= value;
     }
 
-    public GeneratorClass(string Name, decimal CostBase, float GrowthRate, decimal ProductionBase, decimal CoolDown, GameObject CooldownBar, GameObject BuyObj, GameObject TimeLeftObj, bool Unlocked)
+    public void Load(int Owned = 0, decimal Cost = 0, decimal Production = 0, decimal Cooldown = -1, decimal CooldownLeft = -1, decimal Multiplier = 1)
+    {
+        owned = Owned;
+        cost = Cost;
+        production = Production;
+        if (Cooldown != -1)
+        {
+            cooldown = Cooldown;
+        }
+
+        if (cooldownLeft > 0)
+        {
+            genMaker.ProduceMoney(false);
+        }
+        else if (CooldownLeft == -2)
+        {
+            cooldownLeft = 0;
+        }
+        else if (CooldownLeft != -1)
+        {
+            cooldownLeft = CooldownLeft;
+        }
+        multiplier = Multiplier;
+        
+        
+    }
+
+    public void SetMult(decimal Multiplier)
+    {
+        multiplier = Multiplier;
+    }
+
+    public GeneratorClass(string Name, decimal CostBase, float GrowthRate, decimal ProductionBase, decimal CoolDown, GameObject CooldownBar, GameObject BuyObj, GameObject TimeLeftObj, bool Unlocked, GeneratorMaker GenMaker)
     {
         name = Name;
         costBase = CostBase;
@@ -94,6 +132,7 @@ public class GeneratorClass
         buyObj = BuyObj;
         timeLeftObj = TimeLeftObj;
         unlocked = Unlocked;
+        genMaker = GenMaker;
         SetUp();
     }
 

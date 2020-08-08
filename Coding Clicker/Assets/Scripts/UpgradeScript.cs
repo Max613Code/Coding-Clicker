@@ -9,12 +9,17 @@ public class UpgradeScript : MonoBehaviour
 
     public RectTransform UnlockedUpgrades;
 
+    public GameObject Master;
+
+    public int Index;
+
     public void Buy()
     {
-        if (LevelHandler.money >= upgClass.cost)
+        if (LevelHandler.money >= upgClass.cost && !upgClass.Unlocked)
         {
             upgClass.Buy();
             gameObject.transform.SetParent(UnlockedUpgrades);
+            Master.GetComponent<MasterScript>().upgradesUnlockedList[Index] = true;
             UIHandler.RePosUpgradeUI();
             UIHandler.RePosUnlockedUpgradesUI();
         }
@@ -28,5 +33,10 @@ public class UpgradeScript : MonoBehaviour
         gameObject.transform.Find("CostText").GetComponent<Text>().text = "$" + upgClass.cost.ToString();
         gameObject.transform.Find("UpgradeEffectOnWhatImage").GetComponent<Image>().sprite = upgClass.upgradeEffectOnWhatImg;
         UnlockedUpgrades = GameObject.Find("UnlockedUpgradesContainer").GetComponent<RectTransform>();
+    }
+
+    public void SwitchParent()
+    {
+        gameObject.transform.SetParent(UnlockedUpgrades);
     }
 }

@@ -5,11 +5,17 @@ using UnityEngine;
 public class AutoClickerClass
 {
 
-    private decimal cooldown;
+    public decimal cooldown;
 
-    private decimal cooldownLeft;
+    public decimal cooldownLeft;
 
-    private bool Going = true;
+    public bool Going = true;
+
+    public bool forComputer;
+
+    private GeneratorMaker gen;
+
+    public string genName;
 
     public IEnumerator IEStartAutoClick()
     {
@@ -21,14 +27,39 @@ public class AutoClickerClass
                 cooldownLeft -= (decimal)Time.deltaTime;
                 yield return new WaitForSeconds(0);
             }
-            ComputerHandler.ComputerClicked();
+            if (forComputer)
+            {
+                ComputerHandler.ComputerClicked();
+            }
+            else
+            {
+                gen.ProduceMoney();
+            }
         }
     }
 
-    public AutoClickerClass(decimal Cooldown)
+    public AutoClickerClass(decimal Cooldown, bool ForComputer,decimal CooldownLeft = -1, GeneratorMaker Gen = null )
     {
         cooldown = Cooldown;
-        cooldownLeft = cooldown;
+        forComputer = ForComputer;
+        gen = Gen;
+        if (cooldownLeft == -1)
+        {
+            cooldownLeft = cooldown;
+        }
+        else
+        {
+            cooldownLeft = CooldownLeft;
+        }
+
+        if (gen != null)
+        {
+            genName = gen.gen.name;
+        }
+        else
+        {
+            genName = "";
+        }
     }
 
     public void setCooldown(decimal Cooldown)

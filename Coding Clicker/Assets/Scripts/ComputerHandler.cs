@@ -13,7 +13,7 @@ public static class ComputerHandler
 
     static GameObject functions = GameObject.Find("Functions");
 
-    static decimal clickPower = 1;
+    public static decimal clickPower { get; private set; }
 
     public static void ComputerClicked()
     {
@@ -41,6 +41,11 @@ public static class ComputerHandler
     public static void AddClickPower(decimal amount)
     {
         clickPower += amount;
+    }
+
+    public static void SetClickPower(decimal amount)
+    {
+        clickPower = amount;
     }
 
     public static void ChangeComputerImage(Sprite image)

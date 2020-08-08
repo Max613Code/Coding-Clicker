@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a29405d4e62604dbe63f1a0817524d, type: 3}
   m_Name: ComputerUpgrade6
   m_EditorClassIdentifier: 
-  upgradeName: Computer Type-2
+  upgradeName: Computer Type-2 (WIP)
   upgradeDescription: Better Computer means better performance!\nClick Power * 7
   cost: 12000
-  multiplier: 7
   UpgradeImage: {fileID: 0}
-  dropDown: 2
-  generatorName: 
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: f9ff2a1ed402ce340a9b5bb646038f05,
     type: 3}
-  ComputerUpgradeImage: {fileID: 21300000, guid: 8c8d5e049a7108a48962c2e01c22d54f,
+  dropDown: 2
+  multiplier: 7
+  generatorName: 
+  ComputerUpgradeImage: {fileID: 21300000, guid: c5c1c61e225d9d2428fac67a50adea10,
     type: 3}
+  AutoClickerCooldown: 0
