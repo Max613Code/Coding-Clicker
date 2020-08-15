@@ -46,6 +46,9 @@ public class MasterScript : MonoBehaviour
     private decimal autoClickerAmountEarned;
     public GeneratorMaker genAutoClickerLoad;
 
+    public decimal globalProductionMult = 1;
+    public decimal globalSpeedMult = 1;
+
     public struct ClickerStates
     {
         //String values used because json maker doesn't work with decimals.
@@ -66,6 +69,9 @@ public class MasterScript : MonoBehaviour
         public List<string> acCooldownLefts;
         public List<bool> acForComputers;
         public List<string> acGenNames;
+
+        public string globalProduction;
+        public string globalSpeed;
     }
 
     public ClickerStates ClickerState;
@@ -125,7 +131,10 @@ public class MasterScript : MonoBehaviour
             acCooldowns = (from ac in autoClickers select Convert.ToString(ac.cooldown)).ToList(),
             acCooldownLefts = (from ac in autoClickers select Convert.ToString(ac.cooldownLeft)).ToList(),
             acForComputers = (from ac in autoClickers select ac.forComputer).ToList(),
-            acGenNames = (from ac in autoClickers select ac.genName).ToList()
+            acGenNames = (from ac in autoClickers select ac.genName).ToList(),
+
+            globalProduction = globalProductionMult.ToString(),
+            globalSpeed = globalSpeedMult.ToString()
         };
         string json = JsonUtility.ToJson(state);
         SaveSystem.Save(json);
@@ -142,9 +151,15 @@ public class MasterScript : MonoBehaviour
 
         LevelHandler.SetMoney(Convert.ToDecimal(loadedSave.money));
         UIHandler.UpdateMoney();
+
+        globalSpeedMult = Convert.ToDecimal(loadedSave.globalSpeed);
+        globalProductionMult = Convert.ToDecimal(loadedSave.globalProduction);
+
         for (int i = 0; i < loadedSave.generatorCount.Count; i++)
         {
             int count = loadedSave.generatorCount[i];
+            genList[i].gen.globalMult = globalProductionMult;
+
             if (count > 0)
             {
                 timeLeft = (Convert.ToDecimal(loadedSave.generatorCooldownLeft[i])-idleTimeSecs);
@@ -163,6 +178,7 @@ public class MasterScript : MonoBehaviour
             {
                 genList[i].gen.SetMult(Convert.ToDecimal(loadedSave.generatorMultipliers[i]));
             }
+            
         }
         for (int i = 0; i < loadedSave.upgrades.Count(); i++)
         {
@@ -205,6 +221,29 @@ public class MasterScript : MonoBehaviour
         UIHandler.UpdateMoney();
 
         cameraHandler.SwitchToCam3();
+    }
+
+    public void GlobalProductionMultiply(decimal amount)
+    {
+        foreach(GeneratorMaker gen in genList)
+        {
+            gen.gen.globalMult *= amount;
+            gen.UpdateTexts();
+        }
+        ComputerHandler.globalMult *= amount;
+        globalProductionMult *= amount;
+    }
+    
+    public void GlobalSpeedMultiply(decimal amount)
+    {
+        foreach(GeneratorMaker gen in genList)
+        {
+            gen.gen.cooldown *= amount;
+            gen.gen.cooldownLeft *= amount;
+            gen.gen.CalculateProduction();
+            gen.UpdateTexts();
+        }
+        globalSpeedMult *= amount;
     }
 
     public void ComputerClick()

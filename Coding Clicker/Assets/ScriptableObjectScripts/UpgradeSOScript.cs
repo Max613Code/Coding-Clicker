@@ -20,7 +20,9 @@ public class UpgradeSOScript : ScriptableObject
         UpgradeComputerType,
         GeneratorProductionBase,
         GeneratorSpeed,
-        GeneratorAutoClicker
+        GeneratorAutoClicker,
+        GlobalProduction,
+        GlobalSpeed
     };
     
     public SelectionMenu dropDown = SelectionMenu.ComputerClickPower;

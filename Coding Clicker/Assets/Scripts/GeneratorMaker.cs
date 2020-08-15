@@ -70,7 +70,7 @@ public class GeneratorMaker : MonoBehaviour
 
     public void LoadUnlock()
     {
-        gen.unlock();
+        gen.unlock(false);
         amountText.transform.GetChild(0).gameObject.SetActive(true);
         UpdateTexts();
         button.GetComponent<Image>().sprite = Image;
@@ -97,7 +97,7 @@ public class GeneratorMaker : MonoBehaviour
             }
             else
             {
-                gen.SetCoolDownLeft(gen.cooldown);
+                gen.SetCoolDownLeft(gen.calculatedCooldown);
             }
             while (gen.cooldownLeft > 0)
             {

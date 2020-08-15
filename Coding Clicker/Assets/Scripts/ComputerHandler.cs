@@ -14,6 +14,10 @@ public static class ComputerHandler
     static GameObject functions = GameObject.Find("Functions");
 
     public static decimal clickPower { get; private set; }
+    public static decimal calculatedClickPower { get; private set; }
+
+    public static decimal globalMult = 1;
+    public static decimal employeeMult = 1;
 
     public static void ComputerClicked()
     {
@@ -29,27 +33,34 @@ public static class ComputerHandler
             wobbly = false;
             */
         }
-        LevelHandler.AddMoney(clickPower);
+        LevelHandler.AddMoney(calculatedClickPower);
         UIHandler.UpdateMoney();
     }
 
     public static void MultiplyClickPower(decimal mult)
     {
         clickPower *= mult;
+        CalculateClickPower();
     }
 
     public static void AddClickPower(decimal amount)
     {
         clickPower += amount;
+        CalculateClickPower();
     }
 
     public static void SetClickPower(decimal amount)
     {
         clickPower = amount;
+        CalculateClickPower();
     }
 
     public static void ChangeComputerImage(Sprite image)
     {
         computer.GetComponent<Image>().sprite = image;
+    }
+
+    public static void CalculateClickPower() {
+        calculatedClickPower = clickPower * globalMult * employeeMult;
     }
 }

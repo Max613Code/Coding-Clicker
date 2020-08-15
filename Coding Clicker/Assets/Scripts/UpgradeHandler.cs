@@ -19,10 +19,15 @@ public class UpgradeHandler : MonoBehaviour
 
     private GameObject Master;
 
+    private MasterScript MasterScript;
+
     private void Start()
     {
         upgradeScriptList = Enumerable.Repeat((UpgradeScript)null,upgradeList.Count()).ToList();
         Master = GameObject.Find("Master");
+
+        MasterScript = Master.GetComponent<MasterScript>();
+
         upgradeListSorted = upgradeList.OrderBy( o => o.cost ).ToList();
         foreach (UpgradeSOScript SO in upgradeListSorted)
         {
@@ -36,6 +41,12 @@ public class UpgradeHandler : MonoBehaviour
             }
             SO.myUpgradeClass = upgClass;
             GameObject upgrade= (GameObject)Instantiate(UpgradePrefab);
+
+            if (SO.dropDown.ToString() == "GlobalProduction" || SO.dropDown.ToString() == "GlobalSpeed" || SO.dropDown.ToString() == "GeneratorAutoClicker" || SO.dropDown.ToString() == "ComputerAutoClicker")
+            {
+                upgClass.Master = MasterScript;
+            }
+
             upgrade.transform.SetParent(UpgradeContainer.transform, worldPositionStays: false);
 
             UpgradeScript script = upgrade.GetComponent<UpgradeScript>();

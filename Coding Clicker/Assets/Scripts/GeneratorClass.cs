@@ -14,10 +14,12 @@ public class GeneratorClass
 
     public decimal multiplier { get; private set; }
 
+    public decimal globalMult = 1;
+
     public int owned { get; private set; }
 
-    public decimal cooldownLeft { get; private set; }
-    public decimal cooldown { get; private set; }
+    public decimal cooldownLeft;
+    public decimal cooldown;
     public bool unlocked { get; private set; }
 
     private GameObject cooldownBar;
@@ -32,6 +34,9 @@ public class GeneratorClass
 
     public GeneratorMaker genMaker;
 
+    public decimal employeeSpeedMultiplier = 1;
+    public decimal calculatedCooldown;
+
     public void SetUp()
     {
         owned = 0;
@@ -39,11 +44,12 @@ public class GeneratorClass
         cost = costBase;
         multiplier = 1;
         cooldownLeft = 0;
+        calculateRealCooldown();
     }
 
     public void CalculateProduction()
     {
-        production = (productionBase * owned) * multiplier;
+        production = (productionBase * owned) * multiplier * globalMult;
     }
 
     public void CalculateCost()
@@ -61,9 +67,12 @@ public class GeneratorClass
         }
     }
 
-    public void unlock()
+    public void unlock(bool ownedPlusPlus=true)
     {
-        owned += 1;
+        if (ownedPlusPlus)
+        {
+            owned += 1;
+        }
         unlocked = true;
         CalculateProduction();
         CalculateCost();
@@ -82,6 +91,7 @@ public class GeneratorClass
     public void SetCoolDown(decimal value)
     {
         cooldown = value;
+        calculateRealCooldown();
     }
 
     public void Multiply(decimal value)
@@ -119,6 +129,11 @@ public class GeneratorClass
     public void SetMult(decimal Multiplier)
     {
         multiplier = Multiplier;
+    }
+
+    public void calculateRealCooldown() 
+    {
+        calculatedCooldown = cooldown * employeeSpeedMultiplier;
     }
 
     public GeneratorClass(string Name, decimal CostBase, float GrowthRate, decimal ProductionBase, decimal CoolDown, GameObject CooldownBar, GameObject BuyObj, GameObject TimeLeftObj, bool Unlocked, GeneratorMaker GenMaker)
