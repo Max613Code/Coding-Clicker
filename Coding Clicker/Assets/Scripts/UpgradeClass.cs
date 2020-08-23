@@ -50,7 +50,6 @@ public class UpgradeClass
             LevelHandler.SubtractMoney(this.cost);
             UIHandler.UpdateMoney();
             Unlocked = true;
-            Master.CalculateMPS();
             if (action == "GeneratorProductionBase")
             {
                 genScript.Multiply((decimal)multiplier);
