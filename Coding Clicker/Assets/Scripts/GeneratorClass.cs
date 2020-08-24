@@ -14,7 +14,7 @@ public class GeneratorClass
 
     public decimal multiplier { get; private set; }
 
-    public decimal globalMult = 1;
+    public decimal globalMultiplier = 1;
 
     public int owned { get; private set; }
 
@@ -35,6 +35,8 @@ public class GeneratorClass
     public GeneratorMaker genMaker;
 
     public decimal employeeSpeedMultiplier = 1;
+    public decimal employeeWorkerMultiplier = 1;
+    public decimal employeeMultiplier = 1;
     public decimal calculatedCooldown;
 
     public void SetUp()
@@ -49,7 +51,7 @@ public class GeneratorClass
 
     public void CalculateProduction()
     {
-        production = (productionBase * owned) * multiplier * globalMult;
+        production = (productionBase * owned) * multiplier * employeeMultiplier * globalMultiplier;
     }
 
     public void CalculateCost()
@@ -133,7 +135,7 @@ public class GeneratorClass
 
     public void calculateRealCooldown() 
     {
-        calculatedCooldown = cooldown * employeeSpeedMultiplier;
+        calculatedCooldown = cooldown * employeeSpeedMultiplier * employeeWorkerMultiplier;
     }
 
     public GeneratorClass(string Name, decimal CostBase, float GrowthRate, decimal ProductionBase, decimal CoolDown, GameObject CooldownBar, GameObject BuyObj, GameObject TimeLeftObj, bool Unlocked, GeneratorMaker GenMaker)

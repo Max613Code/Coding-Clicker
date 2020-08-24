@@ -13,7 +13,8 @@ public class MasterScript : MonoBehaviour
     private GeneratorMaker GUIs;
     
 
-    private decimal PlayTime;
+    private decimal playTime;
+    public decimal mps { get; private set; }
 
     public UpgradeHandler UH;
 
@@ -97,6 +98,8 @@ public class MasterScript : MonoBehaviour
 
         cameraHandler = functions.GetComponent<CameraHandler>();
 
+        RandomFunctions.Randomize();
+
         loadSavedData();
     }
     
@@ -126,7 +129,7 @@ public class MasterScript : MonoBehaviour
             saveTime = DateTime.Now.ToString(),
 
 
-            playTime = PlayTime.ToString(),
+            playTime = playTime.ToString(),
 
             acCooldowns = (from ac in autoClickers select Convert.ToString(ac.cooldown)).ToList(),
             acCooldownLefts = (from ac in autoClickers select Convert.ToString(ac.cooldownLeft)).ToList(),
@@ -158,7 +161,7 @@ public class MasterScript : MonoBehaviour
         for (int i = 0; i < loadedSave.generatorCount.Count; i++)
         {
             int count = loadedSave.generatorCount[i];
-            genList[i].gen.globalMult = globalProductionMult;
+            genList[i].gen.globalMultiplier = globalProductionMult;
 
             if (count > 0)
             {
@@ -190,7 +193,6 @@ public class MasterScript : MonoBehaviour
         UIHandler.RePosUpgradeUI();
         UIHandler.RePosUnlockedUpgradesUI();
 
-        //Work in progress
         for (int i = 0; i < loadedSave.acCooldowns.Count(); i++)
         {
             if (loadedSave.acForComputers[i])
@@ -212,7 +214,7 @@ public class MasterScript : MonoBehaviour
             } 
         }
 
-        PlayTime = Convert.ToDecimal(loadedSave.playTime);
+        playTime = Convert.ToDecimal(loadedSave.playTime);
 
         IdleAwayStatsInfo.Find("MoneyEarnedText").GetComponent<Text>().text = "While you were away, you earned $" + idleMoneyEarned + "!";
         IdleAwayStatsInfo.Find("AwayTimeText").GetComponent<Text>().text = "You were away for " + idleTime + ".";
@@ -221,13 +223,14 @@ public class MasterScript : MonoBehaviour
         UIHandler.UpdateMoney();
 
         cameraHandler.SwitchToCam3();
+        CalculateMPS();
     }
 
     public void GlobalProductionMultiply(decimal amount)
     {
         foreach(GeneratorMaker gen in genList)
         {
-            gen.gen.globalMult *= amount;
+            gen.gen.globalMultiplier *= amount;
             gen.UpdateTexts();
         }
         ComputerHandler.globalMult *= amount;
@@ -268,6 +271,7 @@ public class MasterScript : MonoBehaviour
     public void BlockCodingBuy()
     {
         BlockCoding.Buy(1);
+        CalculateMPS();
     }
 
     public void ConsoleClick()
@@ -281,6 +285,7 @@ public class MasterScript : MonoBehaviour
     public void ConsoleBuy()
     {
         Console.Buy(1);
+        CalculateMPS();
     }
 
     public void GUIsClick()
@@ -294,11 +299,22 @@ public class MasterScript : MonoBehaviour
     public void GUIsBuy()
     {
         GUIs.Buy(1);
+        CalculateMPS();
+    }
+
+    public void CalculateMPS()
+    {
+        mps = 0;
+        foreach(GeneratorMaker gen in genList)
+        {
+            mps += gen.gen.production / gen.gen.cooldown;
+        }
+        mps += ComputerHandler.clickPower;
     }
 
     private void Update()
     {
-        PlayTime += (decimal)Time.deltaTime;
+        playTime += (decimal)Time.deltaTime;
     }
 
 }

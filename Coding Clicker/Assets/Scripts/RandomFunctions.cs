@@ -11,4 +11,12 @@ public static class RandomFunctions
     {
         return rand.Next(min, max);
     }
+
+    public static void Randomize()
+    {
+        for (int _ = 0; _ < rand.Next(1,10); _++)
+        {
+            rand.Next();
+        }
+    }
 }

@@ -13,9 +13,17 @@ public class UIFunctions : MonoBehaviour
     public RectTransform UnlockedUpgrades;
     public Text UpgradeTitle;
 
+    public Canvas EmployeeCanvas;
+    public RectTransform EmployeeShop;
+    public RectTransform EmployeeMenu;
+
+    private Vector3 employeeMenuPosition;
+
     private void Start()
     {
         UnlockedUpgrades.gameObject.SetActive(false);
+        EmployeeMenu.gameObject.transform.position = new Vector3(2000, 0, 2000);
+        employeeMenuPosition = EmployeeShop.transform.position;
     }
 
     public void SwitchAllUpgrades()
@@ -35,6 +43,24 @@ public class UIFunctions : MonoBehaviour
             UnlockedUpgrades.gameObject.SetActive(true);
             AllUpgrades.gameObject.SetActive(false);
             UpgradeTitle.text = "Unlocked";
+        }
+    }
+
+    public void SwitchEmployeeShop()
+    {
+        if (EmployeeCanvas.enabled )
+        {
+            EmployeeShop.gameObject.SetActive(true);
+            EmployeeMenu.gameObject.transform.position = new Vector3(2000, 0, 2000);
+        }
+    }
+    
+    public void SwitchEmployeeMenu()
+    {
+        if (EmployeeCanvas.enabled )
+        {
+            EmployeeShop.gameObject.SetActive(false);
+            EmployeeMenu.gameObject.transform.position = employeeMenuPosition;
         }
     }
 
