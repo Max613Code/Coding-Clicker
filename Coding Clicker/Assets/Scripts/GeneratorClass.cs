@@ -135,7 +135,7 @@ public class GeneratorClass
 
     public void calculateRealCooldown() 
     {
-        calculatedCooldown = cooldown * employeeSpeedMultiplier * employeeWorkerMultiplier;
+        calculatedCooldown = cooldown / (employeeSpeedMultiplier * employeeWorkerMultiplier);
     }
 
     public GeneratorClass(string Name, decimal CostBase, float GrowthRate, decimal ProductionBase, decimal CoolDown, GameObject CooldownBar, GameObject BuyObj, GameObject TimeLeftObj, bool Unlocked, GeneratorMaker GenMaker)

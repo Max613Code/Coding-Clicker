@@ -25,9 +25,10 @@ public class GeneratorMaker : MonoBehaviour
     public float growthRate;
     public float productionBase;
     public float cooldown;
+    public float defualtAutoClickerCooldown;
 
     public GeneratorClass gen { get; private set; }
-    private bool producing = false;
+    public bool producing { get; private set; }
     private Vector3 startPos;
     private Vector3 startScale;
     private decimal widthIncrease;
@@ -87,7 +88,7 @@ public class GeneratorMaker : MonoBehaviour
         if (!producing)
         {
             producing = true;
-            widthIncrease = (decimal)cooldownBar.transform.localScale.x/gen.cooldown;
+            widthIncrease = (decimal)cooldownBar.transform.localScale.x/gen.calculatedCooldown;
             cooldownBar.transform.localScale = new Vector3(0, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
 
             if (!ResetCooldownLeft)
@@ -138,7 +139,7 @@ public class GeneratorMaker : MonoBehaviour
     public void SpeedUp(decimal value)
     {
         gen.SetCoolDown(gen.cooldown / value);
-        gen.SetCoolDownLeft(gen.cooldownLeft / value);
+        gen.calculateRealCooldown();
     }
 
     public void StartAutoClick()

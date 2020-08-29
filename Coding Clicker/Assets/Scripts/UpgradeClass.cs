@@ -41,6 +41,8 @@ public class UpgradeClass
         upgradeEffectOnWhatImg = UpgradeEffectOnWhatImg;
         computerUpgradeImage = ComputerUpgradeImage;
         autoClickerCooldown = autoClickCooldown;
+
+        Master = GameObject.Find("Master").GetComponent<MasterScript>();
     }
 
     public void Buy()

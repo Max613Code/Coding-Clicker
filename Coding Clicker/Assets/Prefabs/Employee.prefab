@@ -121,7 +121,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4453445800370301233}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9034014618281872276}
+        m_MethodName: ShowEmployeeDetails
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9034014618281872276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   employeeName: 
+  effectsDescription: 
   description: 
   image: {fileID: 0}
   tier: 0
@@ -142,6 +154,7 @@ MonoBehaviour:
   genAutoClickers: 
   gen: {fileID: 0}
   working: 0
+  UIFunctions: {fileID: 0}
 --- !u!1 &1613211053550697983
 GameObject:
   m_ObjectHideFlags: 0

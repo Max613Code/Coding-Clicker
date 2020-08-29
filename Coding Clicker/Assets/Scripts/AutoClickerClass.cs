@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +7,10 @@ public class AutoClickerClass
 {
 
     public decimal cooldown;
+    public decimal calculatedCooldown;
 
     public decimal cooldownLeft;
+    public decimal calculatedCooldownLeft;
 
     public bool Going = true;
 
@@ -17,23 +20,35 @@ public class AutoClickerClass
 
     public string genName;
 
+    public int activeEmployeeCount;
+
     public IEnumerator IEStartAutoClick()
     {
+        if (activeEmployeeCount > 0)
+        {
+            calculateCooldown();
+        }
         while (Going)
         {
+            calculatedCooldownLeft = calculatedCooldown;
             cooldownLeft = cooldown;
-            while (cooldownLeft > 0)
+            while (calculatedCooldownLeft > 0)
             {
-                cooldownLeft -= (decimal)Time.deltaTime;
+                calculatedCooldownLeft -= (decimal)Time.deltaTime;
                 yield return new WaitForSeconds(0);
             }
             if (forComputer)
             {
                 ComputerHandler.ComputerClicked();
             }
-            else
+            if (gen && gen.gen.unlocked && !gen.producing)
             {
                 gen.ProduceMoney();
+            }
+
+            if (activeEmployeeCount == 0)
+            {
+                Going = false;
             }
         }
     }
@@ -66,6 +81,23 @@ public class AutoClickerClass
     {
         cooldownLeft *= (Cooldown / cooldown);
         cooldown = Cooldown;
+        calculateCooldown();
+    }
+
+    public void calculateCooldown()
+    {
+        if (activeEmployeeCount != 0) 
+        {
+            calculatedCooldown = cooldown * Convert.ToDecimal(Mathf.Clamp((activeEmployeeCount - 1),1, float.MaxValue)) / (activeEmployeeCount);
+            if (calculatedCooldownLeft != calculatedCooldown)
+            {
+                calculatedCooldownLeft = calculatedCooldownLeft * (activeEmployeeCount - 1) / (activeEmployeeCount);
+            }
+        }
+        else
+        {
+            Debug.Log("The function calculateCooldowns called with no active employees.");
+        }
     }
 
 }

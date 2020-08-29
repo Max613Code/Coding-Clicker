@@ -21,7 +21,7 @@ public class EmployeeClass : MonoBehaviour
 
     public int tier;
 
-    public decimal timeCounter { get; private set; }
+    public decimal timeCounter;
 
     public decimal clickPowerEffect = 1;
     public decimal computerAutoClickerEffect = 1;
@@ -38,13 +38,24 @@ public class EmployeeClass : MonoBehaviour
     public bool working = true;
     public bool unlocked { get; private set; }
 
+    public UIFunctions UIFunctions;
+
+    private MasterScript Master;
+
     private Image imageContainer;
     private Text nameText;
     private Text effectsText;
 
+    private List<AutoClickerClass> autoClickers;
+
     private void Start()
     {
+        autoClickers = Enumerable.Repeat((AutoClickerClass)null, gens.Count).ToList();
         timeCounter = 0;
+
+        UIFunctions = GameObject.Find("Functions").GetComponent<UIFunctions>();
+
+        Master = GameObject.Find("Master").GetComponent<MasterScript>();
     }
 
     public void Update()
@@ -76,15 +87,29 @@ public class EmployeeClass : MonoBehaviour
                 if (speedEffects.Count == gens.Count)
                 {
                     gen.gen.employeeSpeedMultiplier *= productionEffects[i];
+                    gen.gen.calculateRealCooldown();
                 }
-                if ((genAutoClickers.Count == gens.Count))
+                gen.UpdateTexts();
+            }
+            for (int i = 0; i < genAutoClickers.Count; i++)
+            {
+                if (autoClickers[i] == null && genAutoClickers[i] && Master.autoClickers[i] == null)
                 {
-                    if (genAutoClickers[i])
-                    {
-                        gen.gen.employeeWorkerMultiplier += 1;
-                    }
+                    autoClickers[i] = Master.CreateGeneratorAutoClicker(gens[i]);
+                    autoClickers[i].activeEmployeeCount += 1;
+                }
+                else if (genAutoClickers[i])
+                {
+                    autoClickers[i] = Master.autoClickers[i];
+                    autoClickers[i].activeEmployeeCount += 1;
+                }
+
+                if (genAutoClickers[i])
+                {
+                    StartCoroutine(autoClickers[i].IEStartAutoClick());
                 }
             }
+            
         }
     }
 
@@ -104,12 +129,12 @@ public class EmployeeClass : MonoBehaviour
                 {
                     gen.gen.employeeSpeedMultiplier /= productionEffects[i];
                 }
-                if ((genAutoClickers.Count == gens.Count))
+            }
+            for (int i = 0; i < genAutoClickers.Count; i++)
+            {
+                if (genAutoClickers[i])
                 {
-                    if (genAutoClickers[i])
-                    {
-                        gen.gen.employeeWorkerMultiplier -= 1;
-                    }
+                    Master.autoClickers[i].activeEmployeeCount -= 1;
                 }
             }
         }
@@ -136,6 +161,18 @@ public class EmployeeClass : MonoBehaviour
         unlocked = true;
         UpdateTexts();
         StartWorking();
+    }
+
+    public void ShowEmployeeDetails()
+    {
+        if (unlocked)
+        {
+            UIFunctions.SwitchEmployeeDetails(image, employeePoints, employeeName, effectsDescription, description, "$" + salary.ToString() + " per " + salaryTimeSecs.ToString() + " seconds.");
+        }
+        else
+        {
+            UIFunctions.SwitchEmployeeDetails(null, 0, "???", "???", "???", "???");
+        }
     }
 
     public void SetUp(string EmployeeName, string EffectsDescription, string Description, Sprite Image, float Salary, float SalaryTimeSecs, float ClickPowerEffect, float ComputerAutoClickerEffect, List<string> Gens, List<float> ProductionEffects, List<float> SpeedEffects, List<float> AutoClickerEffects, List<bool> GenAutoClickers, bool Unlocked = false)

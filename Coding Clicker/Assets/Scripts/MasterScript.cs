@@ -11,7 +11,6 @@ public class MasterScript : MonoBehaviour
     private GeneratorMaker BlockCoding;
     private GeneratorMaker Console;
     private GeneratorMaker GUIs;
-    
 
     private decimal playTime;
     public decimal mps { get; private set; }
@@ -50,6 +49,8 @@ public class MasterScript : MonoBehaviour
     public decimal globalProductionMult = 1;
     public decimal globalSpeedMult = 1;
 
+    public EmployeeHandler employeeHandler;
+
     public struct ClickerStates
     {
         //String values used because json maker doesn't work with decimals.
@@ -70,6 +71,12 @@ public class MasterScript : MonoBehaviour
         public List<string> acCooldownLefts;
         public List<bool> acForComputers;
         public List<string> acGenNames;
+
+        public List<bool> employeesUnlocked;
+        public List<string> employeePoints;
+        public List<bool> employeeWorking;
+        public List<string> employeeSalaryCooldowns;
+        public List<string> employeeSalaryCooldownLefts;
 
         public string globalProduction;
         public string globalSpeed;
@@ -99,6 +106,10 @@ public class MasterScript : MonoBehaviour
         cameraHandler = functions.GetComponent<CameraHandler>();
 
         RandomFunctions.Randomize();
+
+        autoClickers = Enumerable.Repeat((AutoClickerClass)null, genList.Count()).ToList();
+
+        employeeHandler = gameObject.GetComponent<EmployeeHandler>();
 
         loadSavedData();
     }
@@ -131,10 +142,16 @@ public class MasterScript : MonoBehaviour
 
             playTime = playTime.ToString(),
 
-            acCooldowns = (from ac in autoClickers select Convert.ToString(ac.cooldown)).ToList(),
-            acCooldownLefts = (from ac in autoClickers select Convert.ToString(ac.cooldownLeft)).ToList(),
-            acForComputers = (from ac in autoClickers select ac.forComputer).ToList(),
-            acGenNames = (from ac in autoClickers select ac.genName).ToList(),
+            acCooldowns = (from ac in autoClickers select ((ac != null) ? Convert.ToString(ac.cooldown) : "-1")).ToList(),
+            acCooldownLefts = (from ac in autoClickers select ((ac != null) ? Convert.ToString(ac.cooldownLeft) : "-1")).ToList(),
+            acForComputers = (from ac in autoClickers select ((ac != null) ? ac.forComputer : false)).ToList(),
+            acGenNames = (from ac in autoClickers select ((ac != null) ? ac.genName : "AutoClicker not set.")).ToList(),
+
+            employeesUnlocked = (from employee in employeeHandler.employeeClasses select employee.unlocked).ToList(),
+            employeePoints = (from employee in employeeHandler.employeeClasses select employee.employeePoints.ToString()).ToList(),
+            employeeWorking = (from employee in employeeHandler.employeeClasses select employee.working).ToList(),
+            employeeSalaryCooldowns = (from employee in employeeHandler.employeeClasses select employee.salaryTimeSecs.ToString()).ToList(),
+            employeeSalaryCooldownLefts = (from employee in employeeHandler.employeeClasses select employee.timeCounter.ToString()).ToList(),
 
             globalProduction = globalProductionMult.ToString(),
             globalSpeed = globalSpeedMult.ToString()
@@ -197,21 +214,49 @@ public class MasterScript : MonoBehaviour
         {
             if (loadedSave.acForComputers[i])
             {
-                this.autoClickerClass = new AutoClickerClass(Convert.ToDecimal(loadedSave.acCooldowns[i]), false, Convert.ToDecimal(loadedSave.acCooldownLefts[i]));
+                this.autoClickerClass = new AutoClickerClass(Convert.ToDecimal(loadedSave.acCooldowns[i]), true, Convert.ToDecimal(loadedSave.acCooldownLefts[i]));
                 this.ComputerAutoClickerExists = true;
                 autoClickerAmountEarned = ((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) > 0) ? (((int)((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) / this.autoClickerClass.cooldown)) * ComputerHandler.clickPower) : 0;
                 this.StartComputerAutoClick();
+                autoClickers[i] = this.autoClickerClass;
                 idleMoneyEarned += autoClickerAmountEarned;
             }
-            else if (loadedSave.acGenNames[i].Equals("") == false)
+            else if (loadedSave.acGenNames[i] != "AutoClicker not set.") 
+            { 
+                if (loadedSave.acGenNames[i].Equals("") == false) 
+                {
+                    genAutoClickerLoad = genList[genNames.IndexOf(loadedSave.acGenNames[i])];
+                    genAutoClickerLoad.gen.AutoClickerAmounts += 1;
+                    autoClickerAmountEarned = ((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) > 0) ? (((int)((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) / Convert.ToDecimal(loadedSave.acCooldowns[i]))) * genAutoClickerLoad.gen.production) : 0;
+                    genAutoClickerLoad.gen.autoclicker = new AutoClickerClass(Convert.ToDecimal(loadedSave.acCooldowns[i]), true, Convert.ToDecimal(loadedSave.acCooldownLefts[i]));
+                    genAutoClickerLoad.StartAutoClick();
+                    autoClickers[i] = genAutoClickerLoad.gen.autoclicker;
+                    idleMoneyEarned += autoClickerAmountEarned;
+                }
+            }
+        }
+
+        for (int i = 0; i < loadedSave.employeesUnlocked.Count; i++)
+        {
+            if (loadedSave.employeesUnlocked[i])
             {
-                genAutoClickerLoad = genList[genNames.IndexOf(loadedSave.acGenNames[i])];
-                genAutoClickerLoad.gen.AutoClickerAmounts += 1;
-                autoClickerAmountEarned = ((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) > 0) ? (((int)((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) / Convert.ToDecimal(loadedSave.acCooldowns[i]))) * genAutoClickerLoad.gen.production) : 0;
-                genAutoClickerLoad.gen.autoclicker = new AutoClickerClass(Convert.ToDecimal(loadedSave.acCooldowns[i]), true, Convert.ToDecimal(loadedSave.acCooldownLefts[i]));
-                genAutoClickerLoad.StartAutoClick();
-                idleMoneyEarned += autoClickerAmountEarned;
-            } 
+                employeeHandler.employeeClasses[i].Unlock();
+                employeeHandler.employeeClasses[i].employeePoints = Convert.ToDecimal(loadedSave.employeePoints[i]);
+                decimal salaryTotal = ((idleTimeSecs - Convert.ToDecimal(loadedSave.employeeSalaryCooldownLefts[i])) > 0) ? (((int)((idleTimeSecs - Convert.ToDecimal(loadedSave.employeeSalaryCooldownLefts[i])) / Convert.ToDecimal(loadedSave.employeeSalaryCooldowns[i]))) * employeeHandler.employeeClasses[i].salary) : 0;
+                if (loadedSave.employeeWorking[i]) 
+                {
+                    employeeHandler.employeeClasses[i].StartWorking();
+                }
+                if ((idleTimeSecs - Convert.ToDecimal(loadedSave.employeeSalaryCooldownLefts[i])) > 0) 
+                {
+                    employeeHandler.employeeClasses[i].timeCounter = idleTimeSecs - Convert.ToDecimal(loadedSave.employeeSalaryCooldownLefts[i]);
+                }
+                else
+                {
+                    employeeHandler.employeeClasses[i].timeCounter = (idleTimeSecs - Convert.ToDecimal(loadedSave.employeeSalaryCooldownLefts[i])) % Convert.ToDecimal(loadedSave.employeeSalaryCooldownLefts[i]);
+                }
+                idleMoneyEarned -= salaryTotal;
+            }
         }
 
         playTime = Convert.ToDecimal(loadedSave.playTime);
@@ -241,12 +286,19 @@ public class MasterScript : MonoBehaviour
     {
         foreach(GeneratorMaker gen in genList)
         {
-            gen.gen.cooldown *= amount;
-            gen.gen.cooldownLeft *= amount;
-            gen.gen.CalculateProduction();
+            gen.SpeedUp(amount);
             gen.UpdateTexts();
         }
         globalSpeedMult *= amount;
+    }
+
+    public AutoClickerClass CreateGeneratorAutoClicker(GeneratorMaker gen)
+    {
+        var autoClicker = new AutoClickerClass(Convert.ToDecimal(gen.defualtAutoClickerCooldown), false, -1, gen);
+
+        autoClickers[genList.IndexOf(gen)] = autoClicker;
+
+        return autoClicker;
     }
 
     public void ComputerClick()

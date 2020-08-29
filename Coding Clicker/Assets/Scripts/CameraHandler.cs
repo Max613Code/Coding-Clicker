@@ -14,6 +14,10 @@ public class CameraHandler : MonoBehaviour
     public Canvas canvas3;
     public Canvas canvas4;
 
+    public RectTransform employeeDetails;
+
+    private UIFunctions UIFunctions;
+
     private void Start()
     {
         EnableCamera(cam1);
@@ -24,6 +28,8 @@ public class CameraHandler : MonoBehaviour
         canvas2.enabled = false;
         canvas3.enabled = false;
         canvas4.enabled = false;
+
+        UIFunctions = GameObject.Find("Functions").GetComponent<UIFunctions>();
     }
 
     public void SwitchToCam1()
@@ -96,6 +102,18 @@ public class CameraHandler : MonoBehaviour
     {
         cam.enabled = false;
         cam.GetComponent<AudioListener>().enabled = false;
+    }
+
+    public void EmployeeBack()
+    {
+        if (employeeDetails.gameObject.activeSelf)
+        {
+            UIFunctions.SwitchEmployeeMenu();
+        }
+        else
+        {
+            SwitchToCam1();
+        }
     }
 
 

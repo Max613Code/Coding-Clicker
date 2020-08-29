@@ -1075,6 +1075,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: a469625e8ec910c48990dd3df915d6eb,
         type: 3}
+    - target: {fileID: 3358650927536587671, guid: 47a1cd1b87b9fe3448e524632a3c0f7a,
+        type: 3}
+      propertyPath: defualtAutoClickerCooldown
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47a1cd1b87b9fe3448e524632a3c0f7a, type: 3}
 --- !u!224 &252827429 stripped
@@ -1424,6 +1429,7 @@ MonoBehaviour:
   functions: {fileID: 348653583}
   ComputerAutoClickerExists: 0
   genAutoClickerLoad: {fileID: 0}
+  employeeHandler: {fileID: 0}
 --- !u!4 &320495098
 Transform:
   m_ObjectHideFlags: 0
@@ -1514,6 +1520,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: abf102310f6b2154aad2e339a051e177, type: 2}
   - {fileID: 11400000, guid: f58e5063d83c031488afe08d8dda03de, type: 2}
   - {fileID: 11400000, guid: 39e9af7c592294a42986b1bbeae2e39a, type: 2}
+  - {fileID: 11400000, guid: d85249a078b857f4ca3023505f5b216c, type: 2}
   employeeShopPanel: {fileID: 207178036}
   ownedEmployeesPanel: {fileID: 96452129}
   employeePrefab: {fileID: 728366552380621806, guid: 935c0ec5c85d20f4fa665eaa5c801c8f,
@@ -1640,6 +1647,7 @@ MonoBehaviour:
   canvas2: {fileID: 296346560}
   canvas3: {fileID: 1458743188}
   canvas4: {fileID: 1504004584}
+  employeeDetails: {fileID: 1042779774}
 --- !u!4 &348653585
 Transform:
   m_ObjectHideFlags: 0
@@ -1674,6 +1682,8 @@ MonoBehaviour:
   EmployeeCanvas: {fileID: 1504004584}
   EmployeeShop: {fileID: 396001089}
   EmployeeMenu: {fileID: 96452130}
+  EmployeeDetails: {fileID: 1042779774}
+  EmployeeNav: {fileID: 1610890816}
 --- !u!1 &380242778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,7 +3283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1042779774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3296,7 +3306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.5999756, y: 0}
+  m_AnchoredPosition: {x: 1.5999756, y: 11.25}
   m_SizeDelta: {x: 675, y: 975}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1042779775
@@ -3394,7 +3404,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -3402,7 +3412,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Employee Description
@@ -5044,7 +5054,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 348653584}
-        m_MethodName: SwitchToCam1
+        m_MethodName: EmployeeBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5474,7 +5484,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -5482,7 +5492,7 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Employee Effects
@@ -6133,6 +6143,11 @@ PrefabInstance:
         type: 3}
       propertyPath: growthRate
       value: 1.041
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358650927536587671, guid: 47a1cd1b87b9fe3448e524632a3c0f7a,
+        type: 3}
+      propertyPath: defualtAutoClickerCooldown
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47a1cd1b87b9fe3448e524632a3c0f7a, type: 3}
@@ -7651,5 +7666,10 @@ PrefabInstance:
       propertyPath: amountText
       value: 
       objectReference: {fileID: 32466968}
+    - target: {fileID: 3358650927536587671, guid: 47a1cd1b87b9fe3448e524632a3c0f7a,
+        type: 3}
+      propertyPath: defualtAutoClickerCooldown
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47a1cd1b87b9fe3448e524632a3c0f7a, type: 3}
