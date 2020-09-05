@@ -80,11 +80,11 @@ public class AutoClickerClass
                 }
                 if (gen && gen.gen.unlocked)
                 {
+                    gen.ProduceMoney();
                     gen.gen.calculatedCooldown = (decimal)0.08;
                     if (gen.gen.calculatedCooldown < (decimal)0.1)
                     {
-                        renderer.material.color = Color.Lerp(new Color(130,130,130), new Color(200,200,200), Mathf.PingPong(Time.time, 1));
-                        Debug.Log(renderer.material.color);
+                        renderer.material.SetColor("_Color",Color.Lerp(new Color(0.5f,0.5f,0.5f), new Color(0.9f,0.9f,0.9f), Mathf.PingPong(Time.time * 0.3f, 1)));
                     } 
                     else
                     {
@@ -132,12 +132,13 @@ public class AutoClickerClass
         if (gen != null)
         {
             genName = gen.gen.name;
+            renderer = gen.cooldownBar.GetComponent<Renderer>();
         }
         else
         {
             genName = "";
         }
-        renderer = gen.cooldownBar.GetComponent<Renderer>();
+        
     }
 
     public void setCooldown(decimal Cooldown)

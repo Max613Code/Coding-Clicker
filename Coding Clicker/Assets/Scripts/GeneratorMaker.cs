@@ -33,6 +33,8 @@ public class GeneratorMaker : MonoBehaviour
     private Vector3 startScale;
     private decimal widthIncrease;
 
+    private decimal leftOver;
+
     private void Start()
     {
         gen = new GeneratorClass(genName, (decimal)costBase, growthRate, (decimal)productionBase, (decimal)cooldown, cooldownBar, buy, timer, false, this);
@@ -64,7 +66,14 @@ public class GeneratorMaker : MonoBehaviour
             else
             {
                 gen.Buy(amount);
-                UpdateTexts();
+                if (gen.calculatedCooldown >= (decimal)0.1 || gen.autoclicker.Going == false)
+                {
+                    UpdateTexts();
+                }
+                else
+                {
+                    UpdateTexts(true);
+                }
             }
         }
     }
@@ -73,9 +82,11 @@ public class GeneratorMaker : MonoBehaviour
     {
         gen.unlock(false);
         amountText.transform.GetChild(0).gameObject.SetActive(true);
-        UpdateTexts();
         button.GetComponent<Image>().sprite = Image;
-        UpdateTexts();
+        if (gen.calculatedCooldown < (decimal)0.1 && gen.autoclicker.Going)
+        {
+            UpdateTexts();
+        }
     }
 
     public void ProduceMoney(bool ResetCooldownLeft = true)
@@ -89,37 +100,70 @@ public class GeneratorMaker : MonoBehaviour
         {
             producing = true;
             widthIncrease = (decimal)cooldownBar.transform.localScale.x/gen.calculatedCooldown;
-            cooldownBar.transform.localScale = new Vector3(0, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
+            
 
-            if (!ResetCooldownLeft)
-            {
-                cooldownBar.transform.localScale = new Vector3(cooldownBar.transform.localScale.x + (float)(gen.cooldown - gen.cooldownLeft) * (float)widthIncrease, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
-                cooldownBar.transform.position = new Vector3(startPos.x - startScale.x / 2 + (cooldownBar.transform.localScale.x / 2), startPos.y, startPos.z);
+            if ((gen.calculatedCooldown > (decimal)0.1) || gen.autoclicker.Going == false)
+            {   
+                cooldownBar.transform.localScale = new Vector3(0, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
+                if (!ResetCooldownLeft)
+                {
+                    cooldownBar.transform.localScale = new Vector3(cooldownBar.transform.localScale.x + (float)(gen.cooldown - gen.cooldownLeft) * (float)widthIncrease, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
+                    cooldownBar.transform.position = new Vector3(startPos.x - startScale.x / 2 + (cooldownBar.transform.localScale.x / 2), startPos.y, startPos.z);
+                }
+                else
+                {
+                    gen.SetCoolDownLeft(gen.calculatedCooldown);
+                }
+                while (gen.cooldownLeft > 0)
+                {
+                    cooldownBar.transform.localScale = new Vector3(cooldownBar.transform.localScale.x + Time.deltaTime * (float)widthIncrease, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
+                    cooldownBar.transform.position = new Vector3(startPos.x - startScale.x / 2 + (cooldownBar.transform.localScale.x / 2), startPos.y, startPos.z);
+                    gen.SubCoolDownLeft((decimal)Time.deltaTime);
+                    yield return new WaitForSeconds(0);
+                    timerText.text = Math.Round(gen.cooldownLeft, 2).ToString() + " s";
+                }
+                gen.SetCoolDownLeft(0);
+                LevelHandler.AddMoney((decimal)gen.production);
+                cooldownBar.transform.position = startPos;
+                cooldownBar.transform.localScale = startScale;
+                producing = false;
+                UpdateTexts();
             }
-            else
+            else if (gen.autoclicker.Going)
             {
-                gen.SetCoolDownLeft(gen.calculatedCooldown);
+                while (gen.autoclicker.Going)
+                {
+                    while (leftOver < (decimal)0.1)
+                    {
+                        leftOver += (decimal)Time.deltaTime;
+                        yield return new WaitForSeconds(0);
+                    }
+                    LevelHandler.AddMoney(Math.Floor(leftOver * 10) * gen.production / (gen.calculatedCooldown * 10));
+                    UIHandler.UpdateMoney();
+                    leftOver %= (decimal)0.1;
+                    leftOver += (decimal)Time.deltaTime;
+                }
             }
-            while (gen.cooldownLeft > 0)
-            {
-                cooldownBar.transform.localScale = new Vector3(cooldownBar.transform.localScale.x + Time.deltaTime * (float)widthIncrease, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
-                cooldownBar.transform.position = new Vector3(startPos.x - startScale.x/2 + (cooldownBar.transform.localScale.x/2), startPos.y, startPos.z);
-                gen.SubCoolDownLeft((decimal)Time.deltaTime);
-                yield return new WaitForSeconds(0);
-                timerText.text = Math.Round(gen.cooldownLeft,2).ToString() + " s";
-            }
-            gen.SetCoolDownLeft(0);
-            LevelHandler.AddMoney((decimal)gen.production);
-            cooldownBar.transform.position = startPos;
-            cooldownBar.transform.localScale = startScale;
-            producing = false;
-            UpdateTexts();
         }
     }
 
-    public void UpdateTexts()
+    public void UpdateTexts(bool fast = false)
     {
-        productionAmountText.text = "$" + gen.production.ToString();
+        if (fast)
+        {
+            productionAmountText.text = "$" + gen.production / gen.calculatedCooldown + "/s";
+        }
+        else
+        {
+            if (gen.autoclicker != null)
+            {
+                if (gen.autoclicker.Going && gen.calculatedCooldown < (decimal)0.1)
+                {
+                    productionAmountText.text = "$" + gen.production / gen.calculatedCooldown + "/s";
+                }
+            }
+            productionAmountText.text = "$" + gen.production.ToString();
+        }
         costAmountText.text = "$" + gen.cost.ToString();
         timerText.text = gen.cooldownLeft.ToString() + " s";
         if (gen.owned != 0)

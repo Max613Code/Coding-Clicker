@@ -67,6 +67,7 @@ public class MasterScript : MonoBehaviour
 
         public string playTime;
 
+        public List<bool> acUnlocked;
         public List<string> acCooldowns;
         public List<string> acCooldownLefts;
         public List<bool> acForComputers;
@@ -228,7 +229,7 @@ public class MasterScript : MonoBehaviour
                     genAutoClickerLoad = genList[genNames.IndexOf(loadedSave.acGenNames[i])];
                     genAutoClickerLoad.gen.AutoClickerAmounts += 1;
                     autoClickerAmountEarned = ((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) > 0) ? (((int)((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) / Convert.ToDecimal(loadedSave.acCooldowns[i]))) * genAutoClickerLoad.gen.production) : 0;
-                    genAutoClickerLoad.gen.autoclicker = new AutoClickerClass(Convert.ToDecimal(loadedSave.acCooldowns[i]), true, Convert.ToDecimal(loadedSave.acCooldownLefts[i]));
+                    genAutoClickerLoad.gen.autoclicker = new AutoClickerClass(Convert.ToDecimal(loadedSave.acCooldowns[i]), false, Convert.ToDecimal(loadedSave.acCooldownLefts[i]), genList[genNames.IndexOf(loadedSave.acGenNames[i])]);
                     genAutoClickerLoad.StartAutoClick();
                     autoClickers[i] = genAutoClickerLoad.gen.autoclicker;
                     idleMoneyEarned += autoClickerAmountEarned;
@@ -257,6 +258,11 @@ public class MasterScript : MonoBehaviour
                 }
                 idleMoneyEarned -= salaryTotal;
             }
+        }
+
+        for (int i = 0; i < loadedSave.generatorCount.Count; i++)
+        {
+            genList[i].UpdateTexts();
         }
 
         playTime = Convert.ToDecimal(loadedSave.playTime);

@@ -12,19 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9bbd6493517ce44ebd9e001e9531b8d, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  employeeName: 555
-  effectsDescription: Jeffq
-  description: yjyjyj
+  employeeName: Blocky Guy
+  effectsDescription: Block Coding Production 50% increase, and also works on block
+    coding.
+  description: This guy is made out of blocks and loves to code it!
   image: {fileID: 0}
-  salary: 10
-  salaryTimeSecs: 1
+  salary: 100
+  salaryTimeSecs: 60
   tier: 1
   clickPowerEffect: 1
   computerAutoClickerEffect: 1
   genNames:
   - BlockCoding
   productionEffects:
-  - 2
+  - 1.5
   speedEffects: []
   autoClickerEffects: []
   genAutoClickers: 01
