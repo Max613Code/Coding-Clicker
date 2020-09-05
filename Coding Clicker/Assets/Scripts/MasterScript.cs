@@ -357,9 +357,12 @@ public class MasterScript : MonoBehaviour
     public void CalculateMPS()
     {
         mps = 0;
-        foreach(GeneratorMaker gen in genList)
+        if (genList.Count > 0)
         {
-            mps += gen.gen.production / gen.gen.cooldown;
+            foreach (GeneratorMaker gen in genList)
+            {
+                mps += gen.gen.production / gen.gen.cooldown;
+            }
         }
         mps += ComputerHandler.clickPower;
     }

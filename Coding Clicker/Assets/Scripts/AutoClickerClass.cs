@@ -12,6 +12,9 @@ public class AutoClickerClass
     public decimal cooldownLeft;
     public decimal calculatedCooldownLeft;
 
+    public decimal fastCounter;
+    public decimal leftOverTime;
+
     public bool Going = true;
 
     public bool forComputer;
@@ -21,6 +24,11 @@ public class AutoClickerClass
     public string genName;
 
     public int activeEmployeeCount;
+    public float randomNum = 255;
+    public Renderer renderer;
+
+    public float counter = 2;
+    public Color targetColor = new Color(130, 130, 130, 1);
 
     public IEnumerator IEStartAutoClick()
     {
@@ -30,25 +38,79 @@ public class AutoClickerClass
         }
         while (Going)
         {
-            calculatedCooldownLeft = calculatedCooldown;
-            cooldownLeft = cooldown;
-            while (calculatedCooldownLeft > 0)
+            calculatedCooldown = (decimal)0.09;
+            if (calculatedCooldown > Convert.ToDecimal(0.1))
             {
-                calculatedCooldownLeft -= (decimal)Time.deltaTime;
-                yield return new WaitForSeconds(0);
-            }
-            if (forComputer)
-            {
-                ComputerHandler.ComputerClicked();
-            }
-            if (gen && gen.gen.unlocked && !gen.producing)
-            {
-                gen.ProduceMoney();
-            }
+                calculatedCooldownLeft = calculatedCooldown;
+                cooldownLeft = cooldown;
+                while (calculatedCooldownLeft > 0)
+                {
+                    calculatedCooldownLeft -= (decimal)Time.deltaTime;
+                    yield return new WaitForSeconds(0);
+                }
+                if (forComputer)
+                {
+                    ComputerHandler.ComputerClicked();
+                }
+                if (gen && gen.gen.unlocked && !gen.producing)
+                {
+                    gen.ProduceMoney();
+                }
 
-            if (activeEmployeeCount == 0)
+                if (activeEmployeeCount == 0)
+                {
+                    Going = false;
+                }
+            }
+            else
             {
-                Going = false;
+                fastCounter = (decimal)0.1;
+                while (fastCounter > 0)
+                {
+                    fastCounter -= (decimal)Time.deltaTime;
+                    yield return new WaitForSeconds(0);
+                }
+                if (forComputer)
+                {
+                    for (int i = 0; i < Math.Floor(1/calculatedCooldown); i++)
+                    {
+                        ComputerHandler.ComputerClicked();
+                    }
+               
+                }
+                if (gen && gen.gen.unlocked)
+                {
+                    gen.gen.calculatedCooldown = (decimal)0.08;
+                    if (gen.gen.calculatedCooldown < (decimal)0.1)
+                    {
+                        renderer.material.color = Color.Lerp(new Color(130,130,130), new Color(200,200,200), Mathf.PingPong(Time.time, 1));
+                        Debug.Log(renderer.material.color);
+                    } 
+                    else
+                    {
+                        gen.ProduceMoney();
+                    }
+                }
+                
+                leftOverTime += (Math.Floor(1 / calculatedCooldown) % 1);
+
+                if (leftOverTime > calculatedCooldown)
+                {
+                    for (int i = 0; i < Math.Floor(leftOverTime / calculatedCooldown); i++)
+                    {
+                        if (forComputer)
+                        {
+                            ComputerHandler.ComputerClicked();
+                        }
+                    }
+                    leftOverTime -= Math.Floor(leftOverTime / calculatedCooldown);
+                }
+              
+
+                if (activeEmployeeCount == 0)
+                {
+                    Going = false;
+                }
             }
         }
     }
@@ -75,6 +137,7 @@ public class AutoClickerClass
         {
             genName = "";
         }
+        renderer = gen.cooldownBar.GetComponent<Renderer>();
     }
 
     public void setCooldown(decimal Cooldown)

@@ -8,6 +8,8 @@ public static class UIHandler
 {
 
     private static Text moneyText = GameObject.Find("MoneyText").GetComponent<Text>();
+    private static Text upgradeMoneyText = GameObject.Find("UpgradeMoneyText").GetComponent<Text>();    
+    private static Text employeeMoneyText = GameObject.Find("EmployeeMoneyText").GetComponent<Text>();
     private static RectTransform AllUpgradeUI = GameObject.Find("UpgradeContainer").GetComponent<RectTransform>();
     private static RectTransform UnlockdUpgradeUI = GameObject.Find("UnlockedUpgradesContainer").GetComponent<RectTransform>();
 
@@ -23,6 +25,8 @@ public static class UIHandler
         }
 
         moneyText.text = "$" + Math.Round(money, 2);
+        upgradeMoneyText.text = "$" + Math.Round(money, 2);
+        employeeMoneyText.text = "$" + Math.Round(money, 2);
     }
 
     public static void RePosUpgradeUI()
