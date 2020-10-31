@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\chong\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\chong\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_Coding Clicker.-65015153.00" t="ExcludeRecursive" />
+    <e p="C:\Users\chong\Documents\GitHub\Coding-Clicker\Coding Clicker" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Misc" t="Include">
+          <e p="UpdateHandler.cs" t="Include" />
+        </e>
+        <e p="ScriptableObjectScripts" t="Include">
+          <e p="EmployeeSOScript.cs" t="Include" />
+          <e p="UpgradeSOScript.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="AutoClickerClass.cs" t="Include" />
+          <e p="CameraHandler.cs" t="Include" />
+          <e p="ClickTest.cs" t="Include" />
+          <e p="ComputerHandler.cs" t="Include" />
+          <e p="EmployeeClass.cs" t="Include" />
+          <e p="EmployeeHandler.cs" t="Include" />
+          <e p="EmployeeShopPrefabScript.cs" t="Include" />
+          <e p="GeneratorClass.cs" t="Include" />
+          <e p="GeneratorMaker.cs" t="Include" />
+          <e p="LevelHandler.cs" t="Include" />
+          <e p="MasterScript.cs" t="Include" />
+          <e p="RandomFunctions.cs" t="Include" />
+          <e p="SaveFunctions.cs" t="Include" />
+          <e p="SaveSystem.cs" t="Include" />
+          <e p="TimeFunctions.cs" t="Include" />
+          <e p="UIFunctions.cs" t="Include" />
+          <e p="UIHandler.cs" t="Include" />
+          <e p="UpgradeClass.cs" t="Include" />
+          <e p="UpgradeHandler.cs" t="Include" />
+          <e p="UpgradeScript.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Coding Clicker.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

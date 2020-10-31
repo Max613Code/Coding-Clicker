@@ -38,7 +38,6 @@ public class AutoClickerClass
         }
         while (Going)
         {
-            calculatedCooldown = (decimal)0.09;
             if (calculatedCooldown > Convert.ToDecimal(0.1))
             {
                 calculatedCooldownLeft = calculatedCooldown;

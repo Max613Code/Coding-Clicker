@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
-using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EmployeeClass : MonoBehaviour
@@ -109,7 +108,7 @@ public class EmployeeClass : MonoBehaviour
                     StartCoroutine(autoClickers[i].IEStartAutoClick());
                 }
             }
-            
+
         }
     }
 
@@ -202,7 +201,7 @@ public class EmployeeClass : MonoBehaviour
             imageContainer.sprite = image;
             nameText.text = "???";
             effectsText.text = "???";
-        } 
+        }
         else
         {
             imageContainer.sprite = image;
@@ -211,7 +210,7 @@ public class EmployeeClass : MonoBehaviour
         }
     }
 
-    public EmployeeClass(string EmployeeName, string EffectsDescription,string Description, Sprite Image, float Salary, float SalaryTimeSecs, float ClickPowerEffect, float ComputerAutoClickerEffect, List<string> Gens, List<float> ProductionEffects, List<float> SpeedEffects, List<float> AutoClickerEffects, List<bool> GenAutoClickers, bool Unlocked)
+    public EmployeeClass(string EmployeeName, string EffectsDescription, string Description, Sprite Image, float Salary, float SalaryTimeSecs, float ClickPowerEffect, float ComputerAutoClickerEffect, List<string> Gens, List<float> ProductionEffects, List<float> SpeedEffects, List<float> AutoClickerEffects, List<bool> GenAutoClickers, bool Unlocked)
     {
         employeeName = EmployeeName;
         effectsDescription = EffectsDescription;
@@ -229,7 +228,7 @@ public class EmployeeClass : MonoBehaviour
         unlocked = Unlocked;
     }
 
-    public EmployeeClass(string EmployeeName, string EffectsDescription, string Description, Sprite Image, decimal Salary, decimal SalaryTimeSecs, decimal ClickPowerEffect, decimal ComputerAutoClickerEffect, List<GeneratorMaker> Gens, List<decimal> ProductionEffects, List<decimal> SpeedEffects, List<decimal> AutoClickerEffects,List<bool> GenAutoClickers, bool Unlocked)
+    public EmployeeClass(string EmployeeName, string EffectsDescription, string Description, Sprite Image, decimal Salary, decimal SalaryTimeSecs, decimal ClickPowerEffect, decimal ComputerAutoClickerEffect, List<GeneratorMaker> Gens, List<decimal> ProductionEffects, List<decimal> SpeedEffects, List<decimal> AutoClickerEffects, List<bool> GenAutoClickers, bool Unlocked)
     {
         employeeName = EmployeeName;
         effectsDescription = EffectsDescription;

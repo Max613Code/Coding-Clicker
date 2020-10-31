@@ -91,7 +91,6 @@ public class MasterScript : MonoBehaviour
         SaveSystem.Init();
 
         ComputerHandler.SetClickPower(1);
-        LevelHandler.AddMoney(1234123334);
         UIHandler.UpdateMoney(LevelHandler.money);
         BlockCoding = GameObject.Find("BlockCoding").GetComponent<GeneratorMaker>();
         Console = GameObject.Find("Console").GetComponent<GeneratorMaker>();
@@ -303,6 +302,8 @@ public class MasterScript : MonoBehaviour
         var autoClicker = new AutoClickerClass(Convert.ToDecimal(gen.defualtAutoClickerCooldown), false, -1, gen);
 
         autoClickers[genList.IndexOf(gen)] = autoClicker;
+
+        gen.gen.autoclicker = autoClicker;
 
         return autoClicker;
     }
