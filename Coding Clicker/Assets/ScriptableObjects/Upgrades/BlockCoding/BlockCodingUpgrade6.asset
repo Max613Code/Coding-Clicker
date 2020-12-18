@@ -16,9 +16,15 @@ MonoBehaviour:
   upgradeDescription: Loop code instead of writing it multiple times.\nProduction
     * 3
   cost: 9000
-  multiplier: 3
-  dropDown: 3
-  generatorName: BlockCoding
-  GeneratorImage: {fileID: 0}
+  UpgradeImage: {fileID: 0}
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: e222fb0776e753b498168d08bf85813b,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 3
+  multiplier: 3
+  generatorName: BlockCoding
+  ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

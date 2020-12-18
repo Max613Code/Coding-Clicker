@@ -15,10 +15,15 @@ MonoBehaviour:
   upgradeName: key.get_pressed
   upgradeDescription: Get keys pressed, use to make it interactable!\nSpeed * 2
   cost: 6780000
-  multiplier: 2
   UpgradeImage: {fileID: 0}
-  dropDown: 4
-  generatorName: GUIs
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: a469625e8ec910c48990dd3df915d6eb,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 4
+  multiplier: 2
+  generatorName: GUIs
   ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

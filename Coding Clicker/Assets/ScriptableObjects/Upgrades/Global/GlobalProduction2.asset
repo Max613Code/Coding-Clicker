@@ -26,3 +26,4 @@ MonoBehaviour:
   generatorName: 
   ComputerUpgradeImage: {fileID: 0}
   AutoClickerCooldown: 0
+  tier: 1

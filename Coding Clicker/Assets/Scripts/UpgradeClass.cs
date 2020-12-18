@@ -17,7 +17,7 @@ public class UpgradeClass
     public string action { get; private set; }
     public GeneratorMaker genScript { get; private set; }
 
-    public bool Unlocked { get; private set; }
+    public bool Unlocked { get;  set; }
 
     public Sprite image { get; private set; }
     public Sprite upgradeEffectOnWhatImg { get; private set; }
@@ -76,7 +76,7 @@ public class UpgradeClass
                 {
                     Master.ComputerAutoClickerExists = true;
                     Master.autoClickerClass = new AutoClickerClass((decimal)autoClickerCooldown, true);
-                    Master.autoClickers.Add(Master.autoClickerClass);
+                    Master.autoClickers[(Master.autoClickers.Count) - 1]=Master.autoClickerClass;
                     Master.StartComputerAutoClick();
                 }
             }

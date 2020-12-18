@@ -15,9 +15,15 @@ MonoBehaviour:
   upgradeName: Mouse Type-2
   upgradeDescription: Better sensing and clicking capabilities.\nClick Power * 2
   cost: 3500
-  multiplier: 2
-  dropDown: 0
-  generatorName: 
-  GeneratorImage: {fileID: 0}
+  UpgradeImage: {fileID: 0}
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: f9ff2a1ed402ce340a9b5bb646038f05,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 0
+  multiplier: 2
+  generatorName: 
+  ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

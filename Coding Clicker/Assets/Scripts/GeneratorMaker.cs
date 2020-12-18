@@ -35,9 +35,10 @@ public class GeneratorMaker : MonoBehaviour
 
     private decimal leftOver;
 
-    private void Start()
+    private void Awake()
     {
         gen = new GeneratorClass(genName, (decimal)costBase, growthRate, (decimal)productionBase, (decimal)cooldown, cooldownBar, buy, timer, false, this);
+
         startPos = cooldownBar.transform.position;
         startScale = cooldownBar.transform.localScale;
 

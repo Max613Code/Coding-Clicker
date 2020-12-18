@@ -15,9 +15,15 @@ MonoBehaviour:
   upgradeName: Talk Block
   upgradeDescription: Now they can talk?!\nProduction * 1.5
   cost: 1000
-  multiplier: 1.5
-  dropDown: 3
-  generatorName: BlockCoding
-  GeneratorImage: {fileID: 0}
+  UpgradeImage: {fileID: 0}
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: e222fb0776e753b498168d08bf85813b,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 3
+  multiplier: 1.5
+  generatorName: BlockCoding
+  ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

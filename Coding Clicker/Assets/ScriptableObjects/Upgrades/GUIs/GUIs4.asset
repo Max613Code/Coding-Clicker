@@ -15,10 +15,15 @@ MonoBehaviour:
   upgradeName: Draw
   upgradeDescription: Use this module in pygame to draw shapes.\nSpeed * 3
   cost: 1000000
-  multiplier: 3
   UpgradeImage: {fileID: 0}
-  dropDown: 4
-  generatorName: GUIs
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: a469625e8ec910c48990dd3df915d6eb,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 4
+  multiplier: 3
+  generatorName: GUIs
   ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

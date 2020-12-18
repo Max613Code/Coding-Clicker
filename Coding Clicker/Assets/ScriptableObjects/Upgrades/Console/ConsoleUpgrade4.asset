@@ -16,10 +16,15 @@ MonoBehaviour:
   upgradeDescription: If else statements to control the flow of your code!\nProduction
     * 3
   cost: 55000
-  multiplier: 3
   UpgradeImage: {fileID: 0}
-  dropDown: 3
-  generatorName: Console
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: b62cb57bef07a964fb1d150072f320a3,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 3
+  multiplier: 3
+  generatorName: Console
   ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

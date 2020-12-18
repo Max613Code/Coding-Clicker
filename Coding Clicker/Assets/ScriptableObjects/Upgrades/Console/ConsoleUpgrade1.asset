@@ -15,9 +15,15 @@ MonoBehaviour:
   upgradeName: Print
   upgradeDescription: Basic programming function!\nProduction * 2
   cost: 500
-  multiplier: 2
-  dropDown: 3
-  generatorName: Console
-  GeneratorImage: {fileID: 0}
+  UpgradeImage: {fileID: 0}
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: b62cb57bef07a964fb1d150072f320a3,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 3
+  multiplier: 2
+  generatorName: Console
+  ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

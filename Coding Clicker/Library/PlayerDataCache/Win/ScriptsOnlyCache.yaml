@@ -21,13 +21,8 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
+    - Packages.Rider.Editor.RiderScriptEditorData
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -77,51 +72,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11730}
     - Class: 114
-      Script: {instanceID: 11756}
+      Script: {instanceID: 11760}
     - Class: 114
-      Script: {instanceID: 11876}
+      Script: {instanceID: 11880}
     - Class: 114
-      Script: {instanceID: 11952}
+      Script: {instanceID: 11956}
     - Class: 114
-      Script: {instanceID: 11984}
-    - Class: 114
-      Script: {instanceID: 12070}
+      Script: {instanceID: 11988}
     - Class: 114
       Script: {instanceID: 12074}
     - Class: 114
-      Script: {instanceID: 12128}
+      Script: {instanceID: 12078}
     - Class: 114
-      Script: {instanceID: 12238}
+      Script: {instanceID: 12132}
     - Class: 114
-      Script: {instanceID: 12268}
+      Script: {instanceID: 12242}
     - Class: 114
-      Script: {instanceID: 12316}
+      Script: {instanceID: 12272}
     - Class: 114
-      Script: {instanceID: 12660}
+      Script: {instanceID: 12320}
     - Class: 114
-      Script: {instanceID: 12844}
+      Script: {instanceID: 12664}
     - Class: 114
-      Script: {instanceID: 12876}
+      Script: {instanceID: 12848}
     - Class: 114
-      Script: {instanceID: 12892}
+      Script: {instanceID: 12880}
     - Class: 114
-      Script: {instanceID: 13230}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 13770}
+      Script: {instanceID: 13234}
     - Class: 114
-      Script: {instanceID: 13998}
+      Script: {instanceID: 13774}
     - Class: 114
-      Script: {instanceID: 14136}
+      Script: {instanceID: 14002}
     - Class: 114
-      Script: {instanceID: 14228}
+      Script: {instanceID: 14140}
     - Class: 114
-      Script: {instanceID: 14462}
+      Script: {instanceID: 14232}
     - Class: 114
-      Script: {instanceID: 14830}
+      Script: {instanceID: 14466}
     - Class: 114
-      Script: {instanceID: 14848}
+      Script: {instanceID: 14834}
     - Class: 114
-      Script: {instanceID: 15096}
+      Script: {instanceID: 14852}
+    - Class: 114
+      Script: {instanceID: 15100}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -395,7 +390,7 @@ ScriptsOnlyBuild:
     className: SpriteShape
   - hash:
       serializedVersion: 2
-      Hash: 0e3c87b103d114ef02c5541cb22fe6b5
+      Hash: 976f9af4887d0b618e526709c915ae61
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpgradeSOScript
@@ -696,5 +691,5 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/MainScene.unity
-  playerPath: C:/Users/chong/Documents/GitHub/Coding-Clicker/Coding Clicker/Builds/Coding
-    Clicker.exe
+  playerPath: C:/Users/chong/Documents/GitHub/Coding-Clicker/Builds/Coding Clicker
+    Alpha 0.1.2/Coding Clicker.exe

@@ -71,6 +71,7 @@ public class AutoClickerClass
                 }
                 if (forComputer)
                 {
+                    Debug.Log(calculatedCooldown);
                     for (int i = 0; i < Math.Floor(1/calculatedCooldown); i++)
                     {
                         ComputerHandler.ComputerClicked();
@@ -80,7 +81,6 @@ public class AutoClickerClass
                 if (gen && gen.gen.unlocked)
                 {
                     gen.ProduceMoney();
-                    gen.gen.calculatedCooldown = (decimal)0.08;
                     if (gen.gen.calculatedCooldown < (decimal)0.1)
                     {
                         renderer.material.SetColor("_Color",Color.Lerp(new Color(0.5f,0.5f,0.5f), new Color(0.9f,0.9f,0.9f), Mathf.PingPong(Time.time * 0.3f, 1)));
@@ -90,7 +90,6 @@ public class AutoClickerClass
                         gen.ProduceMoney();
                     }
                 }
-                
                 leftOverTime += (Math.Floor(1 / calculatedCooldown) % 1);
 
                 if (leftOverTime > calculatedCooldown)
@@ -137,7 +136,9 @@ public class AutoClickerClass
         {
             genName = "";
         }
-        
+
+        calculateCooldown();
+
     }
 
     public void setCooldown(decimal Cooldown)
@@ -157,9 +158,14 @@ public class AutoClickerClass
                 calculatedCooldownLeft = calculatedCooldownLeft * (activeEmployeeCount - 1) / (activeEmployeeCount);
             }
         }
-        else
+        else if (!forComputer)
         {
             Debug.Log("The function calculateCooldowns called with no active employees.");
+        }
+
+        if (forComputer)
+        {
+            calculatedCooldown = cooldown;
         }
     }
 

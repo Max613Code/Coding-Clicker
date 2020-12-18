@@ -39,4 +39,6 @@ public class UpgradeSOScript : ScriptableObject
 
 
     public float AutoClickerCooldown;
+
+    public int tier;
 }

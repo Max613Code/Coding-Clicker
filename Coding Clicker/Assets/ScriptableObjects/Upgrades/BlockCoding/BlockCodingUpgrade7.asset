@@ -15,9 +15,15 @@ MonoBehaviour:
   upgradeName: If else statements blocks
   upgradeDescription: Time to code some control Flow!\nSpeed * 2
   cost: 20000
-  multiplier: 2
-  dropDown: 4
-  generatorName: BlockCoding
-  GeneratorImage: {fileID: 0}
+  UpgradeImage: {fileID: 0}
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: e222fb0776e753b498168d08bf85813b,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 4
+  multiplier: 2
+  generatorName: BlockCoding
+  ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

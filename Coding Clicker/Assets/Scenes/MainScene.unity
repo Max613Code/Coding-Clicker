@@ -1587,6 +1587,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 905f521877e092b4093c6ce5f728ef5a, type: 2}
   - {fileID: 11400000, guid: 9f70bf69743687d4888c7e5f9c0ebff3, type: 2}
   - {fileID: 11400000, guid: 3779500cf4e1ed84f8974a001c331135, type: 2}
+  - {fileID: 11400000, guid: e5a79f2ff3344c14c94478692d031ced, type: 2}
+  - {fileID: 11400000, guid: ac1bf4079cc2a904c811fe520452cddc, type: 2}
+  - {fileID: 11400000, guid: 3c43e53dafe45504fae2160428b52b1d, type: 2}
+  - {fileID: 11400000, guid: af4e3cf8490992845a12979d21048404, type: 2}
+  - {fileID: 11400000, guid: 3b7f32d2cca392947a97992d27715197, type: 2}
+  - {fileID: 11400000, guid: 7925fb8796f597040ad09989779e3888, type: 2}
+  - {fileID: 11400000, guid: e7462e29124bc354db00e391b8dfb61b, type: 2}
+  - {fileID: 11400000, guid: e56a4c0003a5e5447b7fde135abdc2a5, type: 2}
+  - {fileID: 11400000, guid: 8ee1581bdf72f164ba8ea66daa9e9a94, type: 2}
+  - {fileID: 11400000, guid: dd3f2225b5562e94ebfe75f5bc0a439a, type: 2}
   UpgradePrefab: {fileID: 3517982780076438173, guid: b36b2f5bdb0d1cd429daeec0da44dd2c,
     type: 3}
   UpgradeContainer: {fileID: 2113794990}

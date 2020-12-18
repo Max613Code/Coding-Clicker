@@ -15,9 +15,15 @@ MonoBehaviour:
   upgradeName: Mouse Type-1
   upgradeDescription: Better mouse that lets you work better!\nClick Power * 1.5
   cost: 250
-  multiplier: 1.5
-  dropDown: 0
-  generatorName: 
-  GeneratorImage: {fileID: 0}
+  UpgradeImage: {fileID: 0}
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: f9ff2a1ed402ce340a9b5bb646038f05,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 0
+  multiplier: 1.5
+  generatorName: 
+  ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1

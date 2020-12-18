@@ -87,7 +87,6 @@ public class MasterScript : MonoBehaviour
 
     private void Start()
     {
-        
         SaveSystem.Init();
 
         ComputerHandler.SetClickPower(1);
@@ -95,7 +94,7 @@ public class MasterScript : MonoBehaviour
         BlockCoding = GameObject.Find("BlockCoding").GetComponent<GeneratorMaker>();
         Console = GameObject.Find("Console").GetComponent<GeneratorMaker>();
         GUIs = GameObject.Find("GUIs").GetComponent<GeneratorMaker>();
-
+        
         genList = new List<GeneratorMaker>() { BlockCoding, Console, GUIs };
         genNames = (from gen in genList select gen.gen.name).ToList();
 
@@ -107,9 +106,11 @@ public class MasterScript : MonoBehaviour
 
         RandomFunctions.Randomize();
 
-        autoClickers = Enumerable.Repeat((AutoClickerClass)null, genList.Count()).ToList();
+        autoClickers = Enumerable.Repeat((AutoClickerClass)null, genList.Count()+1).ToList();
 
         employeeHandler = gameObject.GetComponent<EmployeeHandler>();
+
+        //LevelHandler.AddMoney(1234121234341);
 
         loadSavedData();
     }
@@ -158,6 +159,7 @@ public class MasterScript : MonoBehaviour
         };
         string json = JsonUtility.ToJson(state);
         SaveSystem.Save(json);
+        //Debug.Log(state.acForComputers.Count);
     }
 
     public IEnumerator LoadingValues(ClickerStates loadedSave)
@@ -205,6 +207,7 @@ public class MasterScript : MonoBehaviour
             if (loadedSave.upgrades[i])
             {
                 UH.upgradeScriptList[i].SwitchParent();
+                UH.upgradeScriptList[i].upgClass.Unlocked = true;
             }
         }
         UIHandler.RePosUpgradeUI();
@@ -218,6 +221,7 @@ public class MasterScript : MonoBehaviour
                 this.ComputerAutoClickerExists = true;
                 autoClickerAmountEarned = ((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) > 0) ? (((int)((idleTimeSecs - Convert.ToDecimal(loadedSave.acCooldownLefts[i])) / this.autoClickerClass.cooldown)) * ComputerHandler.clickPower) : 0;
                 this.StartComputerAutoClick();
+                //Debug.Log(i);
                 autoClickers[i] = this.autoClickerClass;
                 idleMoneyEarned += autoClickerAmountEarned;
             }
@@ -284,6 +288,7 @@ public class MasterScript : MonoBehaviour
             gen.UpdateTexts();
         }
         ComputerHandler.globalMult *= amount;
+        ComputerHandler.CalculateClickPower();
         globalProductionMult *= amount;
     }
     
@@ -377,6 +382,11 @@ public class MasterScript : MonoBehaviour
     private void Update()
     {
         playTime += (decimal)Time.deltaTime;
+    }
+
+    public IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
     }
 
 }

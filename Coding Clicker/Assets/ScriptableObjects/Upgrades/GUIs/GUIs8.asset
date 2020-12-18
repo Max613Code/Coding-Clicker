@@ -12,14 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5a29405d4e62604dbe63f1a0817524d, type: 3}
   m_Name: GUIs8
   m_EditorClassIdentifier: 
-  upgradeName: /pack
+  upgradeName: .pack
   upgradeDescription: This organizes widgets in blocks before showing them.\nProduction
     * 3
   cost: 4600000
-  multiplier: 3
   UpgradeImage: {fileID: 0}
-  dropDown: 3
-  generatorName: GUIs
   UpgradeEffectOnWhatImage: {fileID: 21300000, guid: a469625e8ec910c48990dd3df915d6eb,
     type: 3}
+  myUpgradeClass:
+    autoClickerCooldown: 0
+    Master: {fileID: 0}
+  dropDown: 3
+  multiplier: 3
+  generatorName: GUIs
   ComputerUpgradeImage: {fileID: 0}
+  AutoClickerCooldown: 0
+  tier: 1
