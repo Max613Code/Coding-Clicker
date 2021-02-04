@@ -160,7 +160,7 @@ public class AutoClickerClass
         }
         else if (!forComputer)
         {
-            Debug.Log("The function calculateCooldowns called with no active employees.");
+            //Debug.Log("The function calculateCooldowns called with no active employees.");
         }
 
         if (forComputer)

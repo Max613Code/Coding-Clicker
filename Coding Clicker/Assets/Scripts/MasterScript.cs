@@ -19,7 +19,7 @@ public class MasterScript : MonoBehaviour
 
     public List<bool> upgradesUnlockedList;
 
-    private List<GeneratorMaker> genList;
+    public List<GeneratorMaker> genList = new List<GeneratorMaker>();
 
     private List<String> genNames;
 
@@ -50,6 +50,10 @@ public class MasterScript : MonoBehaviour
     public decimal globalSpeedMult = 1;
 
     public EmployeeHandler employeeHandler;
+
+    public List<bool> synergyList;
+    public int synergyCount;
+    public List<Tuple<string, string, float>> synergyValueList = new List<Tuple<string,string,float>>();
 
     public struct ClickerStates
     {
@@ -109,6 +113,21 @@ public class MasterScript : MonoBehaviour
         autoClickers = Enumerable.Repeat((AutoClickerClass)null, genList.Count()+1).ToList();
 
         employeeHandler = gameObject.GetComponent<EmployeeHandler>();
+        
+        foreach (UpgradeSOScript q in gameObject.GetComponent<UpgradeHandler>().upgradeList) 
+        {
+            if (q.dropDown == UpgradeSOScript.SelectionMenu.Synergy)
+            {
+                synergyCount += 1;
+                synergyValueList.Add(
+                    new Tuple<string, string, float>(q.synergyGen1, q.synergyGen2, q.synergyEffect)
+                );
+                
+            }
+        }
+
+        synergyList = Enumerable.Repeat(false, synergyCount).ToList();
+        
 
         //LevelHandler.AddMoney(1234121234341);
 
@@ -382,6 +401,10 @@ public class MasterScript : MonoBehaviour
     private void Update()
     {
         playTime += (decimal)Time.deltaTime;
+        if (Input.GetKeyDown("space"))
+        {
+            LevelHandler.AddMoney(10000000000000);
+        }
     }
 
     public IEnumerator Wait()

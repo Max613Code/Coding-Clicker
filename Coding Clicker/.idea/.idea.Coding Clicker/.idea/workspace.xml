@@ -2,83 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7babc045-fc11-4a55-9904-e253e5d469ab" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coding Clicker/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coding Clicker/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coding Clicker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coding Clicker/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjectScripts/UpgradeSOScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjectScripts/UpgradeSOScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade10.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade10.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade11.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade11.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade12.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade12.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade8.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/BlockCoding/BlockCodingUpgrade9.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade10.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade10.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade8.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade9.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Computer/ComputerUpgrade9.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Console/ConsoleUpgrade8.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs2.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs3.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs4.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs5.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs6.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs7.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/GUIs/GUIs8.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Global/GlobalProduction1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Global/GlobalProduction1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Global/GlobalProduction2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Upgrades/Global/GlobalProduction2.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/AutoClickerClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AutoClickerClass.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GeneratorClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GeneratorClass.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GeneratorMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GeneratorMaker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UpgradeClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UpgradeClass.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UpgradeHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UpgradeHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UpgradeScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UpgradeScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/1e/1efe277fcc46040990b013b5ab84e968" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/2c/2c794a2712af8befcb3d6504c9b771c2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/4a/4ae52c46ac742735f155b5985786f840" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/4c/4c581b76a20f6dfa6d9f42052e42652a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/91/91fea36ed55c81324aa608ac93dd4f41" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/bd/bdaf3430ff3784fe6ae0ca63aa878c94" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/07/07947162232be2941f53f2f5712e6ef7" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/0f/0f28ecacef531570b4d3a57e1a138856" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/41/41eb8d0b6236d205d120eb44cd822422" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/4e/4e9c5c8f6438b0e8c0a6d5b4551da8d2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/4e/4ea7d4d9527c48173784aee9f6925d3d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/59/5933706a23257a52e9fb85bfb18afc75" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/6e/6e992cbce6d83fd75ed52497926d5f46" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/73/73fa98551a47d65e10d531369825b6a2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/ab/abf42ed303c839881c97c4fc2bed1c06" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/ba/ba0af2121b8a0a525e062a7bd7a2ffad" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/c8/c837daec63206a3b6219dc2e465e7340" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/e1/e185d0bedc39b8854c2127d496ae247c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/LastBuild.buildreport" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastBuild.buildreport" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/globalgamemanagers.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/PlayerDataCache/Win/ScriptsOnlyCache.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Library/PlayerDataCache/Win/ScriptsOnlyCache.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/c8/c8f75a433309aaac2a3a3c8a515f5b56.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/c8/c8f75a433309aaac2a3a3c8a515f5b56.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe4.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe5.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe5.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe6.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe6.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe7.log" beforeDir="false" afterPath="$PROJECT_DIR$/Library/shadercompiler-UnityShaderCompiler.exe7.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,11 +45,14 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/AutoClickerClass.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UpgradeScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/UpgradeHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjectScripts/UpgradeSOScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UpgradeClass.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/AutoClickerClass.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GeneratorMaker.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GeneratorClass.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYQkzl8l5JKS20JtU5nn16Mvn7" />
@@ -114,6 +72,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -160,6 +119,14 @@
       <workItem from="1608048214000" duration="709000" />
       <workItem from="1608057818767" duration="1262000" />
       <workItem from="1608307741170" duration="1856000" />
+      <workItem from="1608320340471" duration="122000" />
+      <workItem from="1610169527956" duration="149000" />
+      <workItem from="1610170061409" duration="781000" />
+      <workItem from="1610210325854" duration="8983000" />
+      <workItem from="1612462710822" duration="1767000" />
+      <workItem from="1612464678314" duration="1788000" />
+      <workItem from="1612466511880" duration="1775000" />
+      <workItem from="1612468347965" duration="1140000" />
     </task>
     <servers />
   </component>
@@ -188,13 +155,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/MasterScript.cs</url>
-          <line>112</line>
+          <line>131</line>
           <properties documentPath="C:\Users\chong\Documents\GitHub\Coding-Clicker\Coding Clicker\Assets\Scripts\MasterScript.cs" initialLine="113" containingFunctionPresentation="method 'Start'">
             <startOffsets>
-              <option value="3388" />
+              <option value="4096" />
             </startOffsets>
             <endOffsets>
-              <option value="3425" />
+              <option value="4133" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="3" />

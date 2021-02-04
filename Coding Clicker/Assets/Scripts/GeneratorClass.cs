@@ -39,6 +39,10 @@ public class GeneratorClass
     public decimal employeeMultiplier = 1;
     public decimal calculatedCooldown;
 
+    public MasterScript Master;
+    public List<GeneratorClass> synergyGeneratorList = new List<GeneratorClass>();
+    public List<float> SynergyValues = new List<float>();
+
     public void SetUp()
     {
         owned = 0;
@@ -46,12 +50,27 @@ public class GeneratorClass
         cost = costBase;
         multiplier = 1;
         cooldownLeft = 0;
+        Master = GameObject.Find("Master").GetComponent<MasterScript>();
         calculateRealCooldown();
     }
 
     public void CalculateProduction()
     {
-        production = (productionBase * owned) * multiplier * employeeMultiplier * globalMultiplier;
+        if (synergyGeneratorList.Count == 0)
+        {
+            production = (productionBase * owned) * multiplier * employeeMultiplier * globalMultiplier;
+        }
+        else
+        {
+            production = (productionBase * owned) * multiplier * employeeMultiplier;
+            for (int i = 0; i < synergyGeneratorList.Count; i++)
+            {
+                production *= (Decimal)(1 + (SynergyValues[i] * synergyGeneratorList[i].owned));
+            }
+
+            production *= globalMultiplier;
+            genMaker.UpdateTexts();
+        }
     }
 
     public void CalculateCost()
@@ -66,6 +85,11 @@ public class GeneratorClass
             owned += 1;
             CalculateProduction();
             CalculateCost();
+        }
+    
+        foreach (var i in Master.genList)
+        {
+            i.gen.CalculateProduction();
         }
     }
 

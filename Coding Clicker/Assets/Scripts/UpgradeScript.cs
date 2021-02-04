@@ -38,5 +38,9 @@ public class UpgradeScript : MonoBehaviour
     public void SwitchParent()
     {
         gameObject.transform.SetParent(UnlockedUpgrades);
+        
+        //Fixed Bug 1 check doc for reference
+        upgClass.Unlocked = true;
+        Master.GetComponent<MasterScript>().upgradesUnlockedList[Index] = true;
     }
 }

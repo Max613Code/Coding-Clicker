@@ -22,7 +22,8 @@ public class UpgradeSOScript : ScriptableObject
         GeneratorSpeed,
         GeneratorAutoClicker,
         GlobalProduction,
-        GlobalSpeed
+        GlobalSpeed,
+        Synergy
     };
     
     public SelectionMenu dropDown = SelectionMenu.ComputerClickPower;
@@ -41,4 +42,9 @@ public class UpgradeSOScript : ScriptableObject
     public float AutoClickerCooldown;
 
     public int tier;
+
+    public int synergyId;
+    public string synergyGen1;
+    public string synergyGen2;
+    public float synergyEffect;
 }

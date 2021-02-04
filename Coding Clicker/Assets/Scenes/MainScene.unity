@@ -1516,11 +1516,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UH: {fileID: 320495099}
   upgradesUnlockedList: 
+  genList: []
   IdleAwayStatsInfo: {fileID: 9576064}
   functions: {fileID: 348653583}
   ComputerAutoClickerExists: 0
   genAutoClickerLoad: {fileID: 0}
   employeeHandler: {fileID: 0}
+  synergyList: 
+  synergyCount: 0
 --- !u!4 &320495098
 Transform:
   m_ObjectHideFlags: 0
@@ -1597,6 +1600,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e56a4c0003a5e5447b7fde135abdc2a5, type: 2}
   - {fileID: 11400000, guid: 8ee1581bdf72f164ba8ea66daa9e9a94, type: 2}
   - {fileID: 11400000, guid: dd3f2225b5562e94ebfe75f5bc0a439a, type: 2}
+  - {fileID: 11400000, guid: 82a7504b5f72c624f95d7a52cb200e82, type: 2}
   UpgradePrefab: {fileID: 3517982780076438173, guid: b36b2f5bdb0d1cd429daeec0da44dd2c,
     type: 3}
   UpgradeContainer: {fileID: 2113794990}

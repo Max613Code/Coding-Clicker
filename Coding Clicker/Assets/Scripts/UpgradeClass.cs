@@ -26,6 +26,8 @@ public class UpgradeClass
 
     public float autoClickerCooldown;
 
+    public int SynergyId;
+
     public MasterScript Master;
     
     public UpgradeClass(string Name, string Description, decimal Cost, float Multiplier, string Action, GeneratorMaker GenScript, Sprite img, Sprite UpgradeEffectOnWhatImg, Sprite ComputerUpgradeImage, float autoClickCooldown)
@@ -96,6 +98,11 @@ public class UpgradeClass
             else if (action == "GlobalSpeed")
             {
                 Master.GlobalSpeedMultiply(multiplier);
+            }
+            else if (action == "Synergy")
+            {
+                Master.synergyList[SynergyId] = true;
+                GameObject.Find((Master.synergyValueList[SynergyId].Item2)).GetComponent<GeneratorMaker>().checkSynergies();
             }
         }
     }

@@ -47,6 +47,12 @@ public class UpgradeHandler : MonoBehaviour
                 upgClass.Master = MasterScript;
             }
 
+            if (SO.dropDown.ToString() == "Synergy")
+            {
+                upgClass.Master = MasterScript;
+                upgClass.SynergyId = SO.synergyId;
+            }
+
             upgrade.transform.SetParent(UpgradeContainer.transform, worldPositionStays: false);
 
             UpgradeScript script = upgrade.GetComponent<UpgradeScript>();

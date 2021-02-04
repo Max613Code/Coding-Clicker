@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class GeneratorMaker : MonoBehaviour
@@ -34,6 +35,8 @@ public class GeneratorMaker : MonoBehaviour
     private decimal widthIncrease;
 
     private decimal leftOver;
+
+    public MasterScript Master;
 
     private void Awake()
     {
@@ -190,6 +193,25 @@ public class GeneratorMaker : MonoBehaviour
     public void StartAutoClick()
     {
         StartCoroutine(gen.autoclicker.IEStartAutoClick());
+    }
+    
+    public void checkSynergies()
+    {
+        Master = GameObject.Find("Master").GetComponent<MasterScript>();
+        for (int i = 0; i < Master.synergyList.Count; i++)
+        {
+            if (Master.synergyList[i])
+            {
+                if (Master.synergyValueList[i].Item2.ToString() == this.gen.name.Replace(" ",""))
+                {
+                    var a = (GameObject.Find(Master.synergyValueList[i].Item1).GetComponent<GeneratorMaker>().gen);
+                    gen.synergyGeneratorList.Add(a);
+                    gen.SynergyValues.Add(Master.synergyValueList[i].Item3);
+                    gen.CalculateProduction();
+                    UpdateTexts();
+                }
+            }
+        }
     }
     
 }
