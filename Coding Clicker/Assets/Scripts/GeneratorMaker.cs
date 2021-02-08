@@ -106,7 +106,7 @@ public class GeneratorMaker : MonoBehaviour
             widthIncrease = (decimal)cooldownBar.transform.localScale.x/gen.calculatedCooldown;
             
 
-            if ((gen.calculatedCooldown > (decimal)0.1) || gen.autoclicker.Going == false)
+            if ((gen.calculatedCooldown > (decimal)0.01) || gen.autoclicker.Going == false)
             {   
                 cooldownBar.transform.localScale = new Vector3(0, cooldownBar.transform.localScale.y, cooldownBar.transform.localScale.z);
                 if (!ResetCooldownLeft)
@@ -133,6 +133,7 @@ public class GeneratorMaker : MonoBehaviour
                 producing = false;
                 UpdateTexts();
             }
+            
             else if (gen.autoclicker.Going)
             {
                 while (gen.autoclicker.Going)
@@ -205,10 +206,12 @@ public class GeneratorMaker : MonoBehaviour
                 if (Master.synergyValueList[i].Item2.ToString() == this.gen.name.Replace(" ",""))
                 {
                     var a = (GameObject.Find(Master.synergyValueList[i].Item1).GetComponent<GeneratorMaker>().gen);
-                    gen.synergyGeneratorList.Add(a);
+                    gen.synergyGeneratorList.Add(a.name);
                     gen.SynergyValues.Add(Master.synergyValueList[i].Item3);
                     gen.CalculateProduction();
                     UpdateTexts();
+                    Debug.Log(a.name);
+                    Debug.Log(name);
                 }
             }
         }

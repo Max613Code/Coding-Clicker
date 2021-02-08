@@ -40,7 +40,7 @@ public class GeneratorClass
     public decimal calculatedCooldown;
 
     public MasterScript Master;
-    public List<GeneratorClass> synergyGeneratorList = new List<GeneratorClass>();
+    public List<string> synergyGeneratorList = new List<string>();
     public List<float> SynergyValues = new List<float>();
 
     public void SetUp()
@@ -65,8 +65,9 @@ public class GeneratorClass
             production = (productionBase * owned) * multiplier * employeeMultiplier;
             for (int i = 0; i < synergyGeneratorList.Count; i++)
             {
-                production *= (Decimal)(1 + (SynergyValues[i] * synergyGeneratorList[i].owned));
+                production *= (Decimal)(1 + (SynergyValues[i] * GameObject.Find(synergyGeneratorList[i].Replace(" ","")).GetComponent<GeneratorMaker>().gen.owned));
             }
+            
 
             production *= globalMultiplier;
             genMaker.UpdateTexts();
