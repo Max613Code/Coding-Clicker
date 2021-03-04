@@ -11,6 +11,7 @@ public class MasterScript : MonoBehaviour
     private GeneratorMaker BlockCoding;
     private GeneratorMaker Console;
     private GeneratorMaker GUIs;
+    private GeneratorMaker GameEngine;
 
     private decimal playTime;
     public decimal mps { get; private set; }
@@ -98,8 +99,9 @@ public class MasterScript : MonoBehaviour
         BlockCoding = GameObject.Find("BlockCoding").GetComponent<GeneratorMaker>();
         Console = GameObject.Find("Console").GetComponent<GeneratorMaker>();
         GUIs = GameObject.Find("GUIs").GetComponent<GeneratorMaker>();
+        GameEngine = GameObject.Find("GameEngine").GetComponent<GeneratorMaker>();
         
-        genList = new List<GeneratorMaker>() { BlockCoding, Console, GUIs };
+        genList = new List<GeneratorMaker>() { BlockCoding, Console, GUIs, GameEngine };
         genNames = (from gen in genList select gen.gen.name).ToList();
 
         ComputerAutoClickerExists = false;
@@ -285,6 +287,7 @@ public class MasterScript : MonoBehaviour
         for (int i = 0; i < loadedSave.generatorCount.Count; i++)
         {
             genList[i].UpdateTexts();
+            genList[i].SpeedUp(1);
         }
 
         playTime = Convert.ToDecimal(loadedSave.playTime);
@@ -382,6 +385,20 @@ public class MasterScript : MonoBehaviour
     public void GUIsBuy()
     {
         GUIs.Buy(1);
+        CalculateMPS();
+    }
+
+    public void GameEngineClick()
+    {
+        if (GameEngine.gen.unlocked)
+        {
+            GameEngine.ProduceMoney();
+        }
+    }
+
+    public void GameEngineBuy()
+    {
+        GameEngine.Buy(1);
         CalculateMPS();
     }
 
