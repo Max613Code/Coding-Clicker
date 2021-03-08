@@ -229,6 +229,10 @@ public class MasterScript : MonoBehaviour
             {
                 UH.upgradeScriptList[i].SwitchParent();
                 UH.upgradeScriptList[i].upgClass.Unlocked = true;
+                if (UH.upgradeScriptList[i].upgClass.action == "Synergy")
+                {
+                    this.synergyList[UH.upgradeScriptList[i].upgClass.SynergyId] = true;
+                }
             }
         }
         UIHandler.RePosUpgradeUI();
@@ -286,6 +290,8 @@ public class MasterScript : MonoBehaviour
 
         for (int i = 0; i < loadedSave.generatorCount.Count; i++)
         {
+            genList[i].gen.CalculateProduction();
+            genList[i].checkSynergies();
             genList[i].UpdateTexts();
             genList[i].SpeedUp(1);
         }

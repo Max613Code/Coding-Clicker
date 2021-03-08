@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 [System.Serializable]
@@ -56,13 +57,15 @@ public class GeneratorClass
 
     public void CalculateProduction()
     {
+        //Debug.Log(synergyGeneratorList.Count);
+        //Debug.Log(this.name);
         if (synergyGeneratorList.Count == 0)
         {
             production = (productionBase * owned) * multiplier * employeeMultiplier * globalMultiplier;
         }
         else
         {
-            production = (productionBase * owned) * multiplier * employeeMultiplier;
+            production = (productionBase * owned) * multiplier * employeeMultiplier ;
             for (int i = 0; i < synergyGeneratorList.Count; i++)
             {
                 production *= (Decimal)(1 + (SynergyValues[i] * GameObject.Find(synergyGeneratorList[i].Replace(" ","")).GetComponent<GeneratorMaker>().gen.owned));
@@ -70,8 +73,9 @@ public class GeneratorClass
             
 
             production *= globalMultiplier;
-            genMaker.UpdateTexts();
+            
         }
+        genMaker.UpdateTexts();
     }
 
     public void CalculateCost()

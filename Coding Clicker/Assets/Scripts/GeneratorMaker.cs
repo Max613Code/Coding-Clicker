@@ -70,13 +70,14 @@ public class GeneratorMaker : MonoBehaviour
             else
             {
                 gen.Buy(amount);
-                if (gen.calculatedCooldown >= (decimal)0.1 || gen.autoclicker.Going == false)
+                if (gen.calculatedCooldown >= (decimal)0.1)// || gen.autoclicker.Going == false)
                 {
                     UpdateTexts();
                 }
                 else
                 {
-                    UpdateTexts(true);
+                    //UpdateTexts(true);
+                    UpdateTexts();
                 }
             }
         }
@@ -210,8 +211,8 @@ public class GeneratorMaker : MonoBehaviour
                     gen.SynergyValues.Add(Master.synergyValueList[i].Item3);
                     gen.CalculateProduction();
                     UpdateTexts();
-                    Debug.Log(a.name);
-                    Debug.Log(name);
+                    //Debug.Log(a.name);
+                    //Debug.Log(name);
                 }
             }
         }
