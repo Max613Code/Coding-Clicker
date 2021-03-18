@@ -205,7 +205,15 @@ public class MasterScript : MonoBehaviour
 
             if (count > 0)
             {
-                timeLeft = (Convert.ToDecimal(loadedSave.generatorCooldownLeft[i])-idleTimeSecs);
+                if (Convert.ToDecimal(loadedSave.generatorCooldownLeft[i]) > 0)
+                {
+                    timeLeft = (Convert.ToDecimal(loadedSave.generatorCooldownLeft[i]) - idleTimeSecs);
+                }
+                else
+                {
+                    timeLeft = 0;
+                }
+
                 genList[i].gen.Load(count,Convert.ToDecimal(loadedSave.generatorCost[i]), Convert.ToDecimal(loadedSave.generatorProduction[i]), Convert.ToDecimal(loadedSave.generatorCooldown[i]), (timeLeft > 0)?timeLeft:-2 , Convert.ToDecimal(loadedSave.generatorMultipliers[i]));
                 genList[i].LoadUnlock();
                 if (timeLeft < 0)
@@ -313,6 +321,7 @@ public class MasterScript : MonoBehaviour
         foreach(GeneratorMaker gen in genList)
         {
             gen.gen.globalMultiplier *= amount;
+            gen.gen.CalculateProduction();
             gen.UpdateTexts();
         }
         ComputerHandler.globalMult *= amount;

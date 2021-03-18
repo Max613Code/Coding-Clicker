@@ -72,51 +72,51 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11730}
     - Class: 114
-      Script: {instanceID: 11760}
+      Script: {instanceID: 11756}
     - Class: 114
-      Script: {instanceID: 11880}
+      Script: {instanceID: 11876}
     - Class: 114
-      Script: {instanceID: 11956}
+      Script: {instanceID: 11952}
     - Class: 114
-      Script: {instanceID: 11988}
+      Script: {instanceID: 11984}
+    - Class: 114
+      Script: {instanceID: 12070}
     - Class: 114
       Script: {instanceID: 12074}
     - Class: 114
-      Script: {instanceID: 12078}
+      Script: {instanceID: 12128}
     - Class: 114
-      Script: {instanceID: 12132}
+      Script: {instanceID: 12238}
     - Class: 114
-      Script: {instanceID: 12242}
+      Script: {instanceID: 12268}
     - Class: 114
-      Script: {instanceID: 12272}
+      Script: {instanceID: 12316}
     - Class: 114
-      Script: {instanceID: 12320}
+      Script: {instanceID: 12660}
     - Class: 114
-      Script: {instanceID: 12664}
+      Script: {instanceID: 12844}
     - Class: 114
-      Script: {instanceID: 12848}
+      Script: {instanceID: 12876}
     - Class: 114
-      Script: {instanceID: 12880}
+      Script: {instanceID: 12892}
     - Class: 114
-      Script: {instanceID: 12896}
+      Script: {instanceID: 13230}
     - Class: 114
-      Script: {instanceID: 13234}
+      Script: {instanceID: 13770}
     - Class: 114
-      Script: {instanceID: 13774}
+      Script: {instanceID: 13998}
     - Class: 114
-      Script: {instanceID: 14002}
+      Script: {instanceID: 14136}
     - Class: 114
-      Script: {instanceID: 14140}
+      Script: {instanceID: 14228}
     - Class: 114
-      Script: {instanceID: 14232}
+      Script: {instanceID: 14462}
     - Class: 114
-      Script: {instanceID: 14466}
+      Script: {instanceID: 14830}
     - Class: 114
-      Script: {instanceID: 14834}
+      Script: {instanceID: 14848}
     - Class: 114
-      Script: {instanceID: 14852}
-    - Class: 114
-      Script: {instanceID: 15100}
+      Script: {instanceID: 15096}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -168,7 +168,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: b8aac4874a03b2c912ff39d75713776e
+      Hash: b146cb19032dadcd308f0281029c086f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MasterScript
@@ -192,7 +192,7 @@ ScriptsOnlyBuild:
     className: PlayerQuitHandler
   - hash:
       serializedVersion: 2
-      Hash: 9e2f232f17e6c772fa1d383096702392
+      Hash: 6391b7c2eb08c15df3bf0cb7ead32ea9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GeneratorMaker
@@ -390,7 +390,7 @@ ScriptsOnlyBuild:
     className: SpriteShape
   - hash:
       serializedVersion: 2
-      Hash: 976f9af4887d0b618e526709c915ae61
+      Hash: a91ef2675ceb0355d7555d577ea82a95
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpgradeSOScript
@@ -582,7 +582,7 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
-      Hash: a9a62a2a0cef637b95bd4f1ce085ca67
+      Hash: b60dca480ac0c671e653796047af14c6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpgradeScript
@@ -692,4 +692,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MainScene.unity
   playerPath: C:/Users/chong/Documents/GitHub/Coding-Clicker/Builds/Coding Clicker
-    Alpha 0.1.2/Coding Clicker.exe
+    Alpha 0.1.3/Coding Clicker.exe

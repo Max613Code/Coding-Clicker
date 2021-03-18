@@ -3,20 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="7babc045-fc11-4a55-9904-e253e5d469ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coding Clicker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coding Clicker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GeneratorClass.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GeneratorClass.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GeneratorMaker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GeneratorMaker.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/15/150d9aac5e94d8d54863ba32b56f788b" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/24/246957938330e677d6667c9b31c59a24" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/2d/2d6fdf3d12508bb710fd244a4b4ab442" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/5d/5d7313ef5fbeb6ac63b3f2ec53cfbd7a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/6f/6fbc96fbbb15a3034842959581907f8d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/7b/7bdcd13b2b19666470fc22d5af18d624" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/e7/e7ccdec940cb9dfde48af9e6aaf63799" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/fc/fc647bbd8221c6b1a409f40744b9d909" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/Artifacts/ff/ff0ffc05824ff4a0dd5bcc742a90637f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/0d/0d38c502034afc37b9d1eb1a6b303ad4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/1a/1a5485c4bce6eea9d892747230a00049" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/1e/1eae41ebe50521114f8e10bd8a6784ca" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/28/285c22b3faef4c91c139f636c8cb1d9e" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/2f/2fcb73b2f10ff9cb4a37f91bb71744df" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/30/3039720c98624368684142e2963969e2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/3c/3cc3a99cfc5039431834a4de7d3c7730" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/62/62c0eff2604792412dae1e041ff2d451" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/7e/7eb7db9cd6cf28dc4a1e203a95663a98" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8b/8b36dac823f9c709d6c395c1f2dd4983" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/a6/a62d7bb4f580c483420d44bd37ac3f29" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/b6/b6c4afc8bc2ba11e1e407338bd18f07a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/c6/c63a2007a6e935253f7d0fecf5d4d4d5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/d8/d8799bc7c9dd8330b9c0b4be63650d0c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/da/da4f7d4db687b58c6f8b51af374a3566" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/EditorOnlyScriptingSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorOnlyScriptingSettings.json" afterDir="false" />
@@ -54,7 +57,7 @@
       <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/UnityEngine.UI.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,9 +74,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/UpgradeHandler.cs" />
       <option value="$PROJECT_DIR$/Assets/ScriptableObjectScripts/UpgradeSOScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/UpgradeClass.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GeneratorMaker.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/GeneratorClass.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/MasterScript.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1iYQkzl8l5JKS20JtU5nn16Mvn7" />
@@ -117,10 +120,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="23400">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="23400" />
+      <option name="pid" />
       <option name="selectedOptions">
         <list />
       </option>
@@ -155,6 +158,7 @@
       <workItem from="1614885148890" duration="1456000" />
       <workItem from="1615232019697" duration="88000" />
       <workItem from="1615232381718" duration="1012000" />
+      <workItem from="1616108636416" duration="894000" />
     </task>
     <servers />
   </component>
